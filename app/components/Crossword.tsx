@@ -1,4 +1,4 @@
-"client only";
+"use client";
 import React, { useState } from "react";
 import styles from "./Crossword.module.css";
 
