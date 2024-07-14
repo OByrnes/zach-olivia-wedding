@@ -35,7 +35,7 @@ export default async function handleRsvp(RSVPGroup: RSVPGroup) {
 export async function getGuestByID(group_id?:string) {
   const guests =  await prisma.group.findUnique({
     where: {
-      id: group_id,
+      id: Number(group_id),
     },
    include: {
     guests: true
