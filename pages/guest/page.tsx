@@ -1,12 +1,12 @@
 import { NextPage } from "next";
 
 import Image from "next/image";
-import BackgroundImage from "../components/BackgroundImage";
+import BackgroundImage from "../../app/components/BackgroundImage";
 
-const Menu: NextPage = () => {
+const Guest: NextPage = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
-      <BackgroundImage path="/background.jpg">
+      <BackgroundImage path="background.jpg">
         <main className="flex flex-col items-center justify-center flex-1 py-5">
           <h1 className="text-4xl text-center">Details for Our Wedding</h1>
           <div className="container">
@@ -36,4 +36,4 @@ const Menu: NextPage = () => {
   );
 };
 
-export default Menu;
+export default Guest;

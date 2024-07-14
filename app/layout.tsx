@@ -6,6 +6,7 @@ import Footer from "@/app/components/Footer";
 import siteMetadata from "@/data/siteMetadata";
 import { ThemeProviders } from "./theme-providers";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   // metadataBase: new URL(siteMetadata.siteUrl),
@@ -32,11 +33,12 @@ export default function RootLayout({
       <body className={poppins.className}>
         <ThemeProviders>
           <SectionContainer>
-            <div className="flex h-screen flex-col justify-between font-sans">
-              <div className="flex flex-col relative">
+            <div className="font-sans">
+              <main className="mb-auto" style={{ minHeight: "90vh" }}>
                 <Header />
-                <main className="mb-auto">{children}</main>
-              </div>
+                {children}
+              </main>
+
               <Footer />
             </div>
           </SectionContainer>

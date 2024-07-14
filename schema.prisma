@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+ 
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+ 
+model Group {
+  id     Int     @id @default(autoincrement())
+  email  String
+  name   String
+  number Int
+  guests Guest[]
+}
+
+model Guest {
+  id       Int     @id @default(autoincrement())
+  group    Group   @relation(fields: [groupId], references: [id])
+  groupId  Int
+  name     String?
+  comments String?
+  diet     String[]
+}

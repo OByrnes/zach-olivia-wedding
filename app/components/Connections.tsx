@@ -183,7 +183,7 @@ export const Connections = () => {
     }
   };
   return (
-    <div>
+    <div className="min-h-screen flex flex-col justify-center items-center">
       <h3 className="title">Z + O Connections</h3>
       <div className="fieldset">
         {correctlyGuessed.map((ele) => (

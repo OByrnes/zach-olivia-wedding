@@ -1,12 +1,45 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-const addRSVP = (data: any) => {
-    console.log(data)
+'use server'
+import { NextApiRequest, NextApiResponse } from 'next';
+import { PrismaClient } from '@prisma/client';
+import { RSVPGroup } from '@/app/types';
+
+const prisma = new PrismaClient();
+
+export default async function handleRsvp(RSVPGroup: RSVPGroup) {
+  
+    const { email, name, number, guests } = RSVPGroup
+
+    try {
+      const group = await prisma.group.create({
+        data: {
+          email,
+          name,
+          number,
+          guests: {
+            create: guests.map((guest: any) => ({
+              name: guest.name,
+              comments: guest.comments,
+              diet: guest.diet,
+            })),
+          },
+        },
+      });
+
+     return group
+    } catch (error) {
+      console.log(error)
+    }
+ 
 }
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-    const data = req.body
-  const id = await addRSVP(data)
-  res.redirect(307, `/guest/${id}`)
+
+export async function getGuestByID(group_id?:string) {
+  const guests =  await prisma.group.findUnique({
+    where: {
+      id: group_id,
+    },
+   include: {
+    guests: true
+   }
+  })
+  return guests
 }

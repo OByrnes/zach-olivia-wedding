@@ -4,18 +4,19 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="h-2 w-fill bg-foreground">
-      <div className="mt-16 w-fill flex flex-col items-center">
-        <div className="mb-3 flex space-x-4">
-          <SocialIcon href={`mailto:${siteMetadata.email}`} size={6} />
+    <footer className="h-2 w-fill ">
+      <div className="footer-container">
+        <div className="footer-section">
+          <h4>We hope to see you there</h4>
         </div>
-        <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
-          <div>{siteMetadata.author}</div>
-          <div>{` • `}</div>
-          <div>{`© ${new Date().getFullYear()}`}</div>
-          <div>{` • `}</div>
-          <Link href="/">{siteMetadata.title}</Link>
+
+        <div className="footer-section">
+          <h4>Get in touch</h4>
+          <div className="social-icons">
+            <SocialIcon href={siteMetadata.email} size={2} />
+          </div>
         </div>
+        <div className="footer-section"></div>
       </div>
     </footer>
   );
