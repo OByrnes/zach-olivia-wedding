@@ -44,7 +44,7 @@ const Crossword: React.FC<CrosswordProps> = ({ grid, clues }) => {
             }
             className={styles.cell}
             readOnly={!cell.isEditable}
-            style={{ backgroundColor: cell.isEditable ? "white" : "lightgray" }}
+            style={{ backgroundColor: cell.isEditable ? "white" : "black" }}
           />
         ))}
       </div>
@@ -58,13 +58,13 @@ const Crossword: React.FC<CrosswordProps> = ({ grid, clues }) => {
         <h3>Across</h3>
         <ul>
           {clues.across.map((clue, index) => (
-            <li key={index}>{clue}</li>
+            <li key={index}>{`${index + 1}. ${clue}`}</li>
           ))}
         </ul>
         <h3>Down</h3>
         <ul>
           {clues.down.map((clue, index) => (
-            <li key={index}>{clue}</li>
+            <li key={index}>{`${index + 1}. ${clue}`}</li>
           ))}
         </ul>
       </div>

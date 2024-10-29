@@ -1,29 +1,31 @@
-// pages/groupInfo.tsx
-import { GetServerSideProps } from "next";
 import { PrismaClient } from "@prisma/client";
 import { Group, Guest } from "@prisma/client/wasm";
 import styles from "./GuestInfo.module.css";
-const prisma = new PrismaClient();
+import Link from "next/link";
+import { getGuest } from "../api/guests";
 
 interface GroupWithGuests extends Group {
   guests: Guest[];
 }
-type Props = {
-  group: GroupWithGuests;
-};
 
-const GroupInfo: React.FC<Props> = ({ group }) => {
+export default async function GroupInfo({
+  params,
+}: {
+  params: { guest_id: string };
+}) {
+  const group = await getGuest(params.guest_id);
   return (
     <div className={styles.container}>
       <h1>Guest Information</h1>
 
       <div key={group.id}>
-        <h2>{group.name}</h2>
+        <h2>{`Group of: ${group.name} `}</h2>
         <p>Email: {group.email}</p>
-        <p>Number of Guests: {group.number}</p>
+        <p>Total number of guests in group: {group.number}</p>
+        <Link href={`/group/${group.id}`}>Edit group</Link>
         <h3>Guests:</h3>
         <ul>
-          {group.guests.map((guest) => (
+          {group.guests.map((guest: Guest) => (
             <div key={guest.id} className={styles.card}>
               <li>
                 <p>Name: {guest.name}</p>
@@ -36,24 +38,4 @@ const GroupInfo: React.FC<Props> = ({ group }) => {
       </div>
     </div>
   );
-};
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { guest_id } = context.params as { guest_id: string };
-  const group = await await prisma.group.findUnique({
-    where: {
-      id: Number(guest_id),
-    },
-    include: {
-      guests: true,
-    },
-  });
-
-  return {
-    props: {
-      group,
-    },
-  };
-};
-
-export default GroupInfo;
+}

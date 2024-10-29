@@ -4,11 +4,11 @@
 
 
 :root {
-  --foreground-rgb: 0, 18, 71;
+  --foreground-rgb:237, 233, 254;
 
-  --secondary-rgb: 155, 136, 187;
-  --background-start-rgb: 250, 247, 255;
-  --background-end-rgb:250, 247, 255;
+  --secondary-rgb: 237, 233, 254;
+  --background-start-rgb: 237, 233, 254;
+  --background-end-rgb:30, 27, 75;
   --primary-color-r: 0;
   --primary-color-g: 18;
   --primary-color-b: 71;
@@ -21,10 +21,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 250, 247, 255;
-    --secondary-rgb: 155, 136, 187;
-    --background-start-rgb: 0, 18, 71;
-    --background-end-rgb: 0, 18, 71;
+    --foreground-rgb: 237, 233, 254;
+    --secondary-rgb: 237, 233, 254;
+    --background-start-rgb: 30, 27, 75;
+    --background-end-rgb: 30, 27, 75;
     --primary-color-r: 250;
   --primary-color-g: 247;
   --primary-color-b: 255;
@@ -35,10 +35,11 @@
   }
 }
 
-
+h1, h2, h3 { font-family: var(--font-space-poppins) }
+body, p { font-family: var(--font-space-poppins) }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -346,6 +347,44 @@ h3.title {
 .jiggle {
   animation: jiggle 0.5s ease-in-out;
 }
+
+@media (min-width: 576px) {
+  .card-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+  .card-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  gap: 20px;
+  padding: 20px;
+} }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { .card-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+  gap: 20px;
+  padding: 20px;
+} }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { .card-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+  gap: 20px;
+  padding: 20px;
+} }
 
 .card-grid {
   width: 100%;

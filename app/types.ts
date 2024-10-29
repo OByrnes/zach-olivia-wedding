@@ -1,6 +1,7 @@
 // types.ts
 export interface GuestData {
-  name?: string;
+  id?:  string | number;
+  name: string;
   comments?: string;
   diet?: string[];
 }

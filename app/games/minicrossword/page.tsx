@@ -41,8 +41,8 @@ const grid = [
 ];
 
 const clues = {
-  across: ["1. A state of well-being and contentment"],
-  down: ["1. Opposite of sad"],
+  across: ["happpy"],
+  down: ["Opposite of sad"],
 };
 
 const Home: React.FC = () => {

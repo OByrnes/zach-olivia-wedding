@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 
 import Image from "next/image";
-import BackgroundImage from "../../app/components/BackgroundImage";
+import BackgroundImage from "../components/BackgroundImage";
 
 const Guest: NextPage = () => {
   return (

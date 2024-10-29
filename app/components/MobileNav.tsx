@@ -36,7 +36,7 @@ const MobileNav = () => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="h-8 w-8 text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
+          className="h-8 w-8 text-fuscia-100-900 hover:text-primary-500 dark:text-fuscia-100-100 dark:hover:text-primary-400"
         >
           <path
             fillRule="evenodd"
@@ -70,13 +70,13 @@ const MobileNav = () => {
                 leaveFrom="translate-x-0 opacity-95"
                 leaveTo="translate-x-full opacity-0"
               >
-                <DialogPanel className="fixed left-0 top-0 z-10 h-full w-full bg-white opacity-95 duration-300 dark:bg-gray-950 dark:opacity-[0.98]">
+                <DialogPanel className="fixed left-0 top-0 z-10 h-full w-full bg-blue-950 opacity-95 duration-300 dark:bg-blue-950 dark:opacity-[0.98]">
                   <nav className="fixed mt-8 h-full text-left">
                     {headerNavLinks.map((link) => (
                       <div key={link.title} className="px-12 py-4">
                         <Link
                           href={link.href}
-                          className="text-2xl font-bold tracking-widest text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
+                          className="text-2xl font-bold tracking-widest text-fuscia-100-900 hover:text-primary-500 dark:text-fuscia-100-100 dark:hover:text-primary-400"
                           onClick={onToggleNav}
                         >
                           {link.title}
@@ -95,7 +95,7 @@ const MobileNav = () => {
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                         fill="currentColor"
-                        className="text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400"
+                        className="text-fuscia-100-900 hover:text-primary-500 dark:text-fuscia-100-100 dark:hover:text-primary-400"
                       >
                         <path
                           fillRule="evenodd"

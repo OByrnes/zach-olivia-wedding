@@ -4,23 +4,19 @@ import { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
+    './app/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
-      colors: {
-        foreground: 'rgb(var(--foreground-rgb) / <alpha-value>)',
-        'background-start': 'rgb(var(--background-start-rgb) / <alpha-value>)',
-        'background-end': 'rgb(var(--background-end-rgb) / <alpha-value>)',
-      },
       fontFamily: {
-        sans: ['Poppins', 'sans-serif'],
+        poppins: ['var(--font-space-poppins)'],
+        open_sans: ['var(--font-space-open-sans)'],
       },
     },
   },
   darkMode: 'media', // Use 'media' to respect user's system preference
-  plugins: [],
+  plugins: [require('@tailwindcss/forms')],
 };
 
 export default config;

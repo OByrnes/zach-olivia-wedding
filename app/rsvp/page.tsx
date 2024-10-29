@@ -1,16 +1,28 @@
 import { NextPage } from "next";
-
-import RSVPForm from "../components/RSVPForm";
-
+import handleRsvp from "./api/rsvp";
+import MultiStepForm from "../components/GuestForm";
+import Image from "next/image";
+import styles from "../styles.module.css";
+import background from "../../public/background.jpg";
 const RSVP: NextPage = () => {
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center">
-      <main className="flex flex-col items-center justify-center flex-1 py-5">
-        <h1 className="text-4xl text-center">RSVP for Our Wedding</h1>
-        <p className="mt-3 text-xl text-center">
-          We are excited to celebrate with you!
-        </p>
-        <RSVPForm />
+    <div className="">
+      <div className={styles.bgWrap}>
+        <Image
+          alt="Background image"
+          src={background}
+          placeholder="blur"
+          quality={100}
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
+        />
+      </div>
+
+      <main className={`flex flex-col px-1 py-1 ${styles.bgText}`}>
+        <MultiStepForm submitForm={handleRsvp} />
       </main>
     </div>
   );

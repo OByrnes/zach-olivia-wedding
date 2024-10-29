@@ -1,13 +1,8 @@
 
 .container {
   font-family: 'Poppins', sans-serif;
-  color: #001247;
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      #faf7ff
-    )
-    #faf7ff;
+
+  
     width: 100vw;
     height: 100vh;
     margin: 0 auto;

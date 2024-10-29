@@ -1,12 +1,9 @@
-import { Poppins } from "next/font/google";
+import { Open_Sans, Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "@/app/components/Header";
 import SectionContainer from "@/app/components/SectionContainer";
-import Footer from "@/app/components/Footer";
-import siteMetadata from "@/data/siteMetadata";
-import { ThemeProviders } from "./theme-providers";
 import { Metadata } from "next";
 import Image from "next/image";
+import { Navbar } from "./components/Navbar";
 
 export const metadata: Metadata = {
   // metadataBase: new URL(siteMetadata.siteUrl),
@@ -15,9 +12,16 @@ export const metadata: Metadata = {
 };
 
 const poppins = Poppins({
-  weight: ["500", "200", "900"],
+  weight: ["100", "200", "900"],
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-space-poppins",
+});
+const open_sans = Open_Sans({
+  weight: ["300", "400", "600"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-space-open-sans",
 });
 
 export default function RootLayout({
@@ -27,22 +31,16 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang={siteMetadata.language}
-      className={`${poppins.variable} scroll-smooth`}
+      lang="en"
+      className={`${poppins.variable} ${open_sans.variable} h-full bg-blue-950`}
     >
-      <body className={poppins.className}>
-        <ThemeProviders>
-          <SectionContainer>
-            <div className="font-sans">
-              <main className="mb-auto" style={{ minHeight: "90vh" }}>
-                <Header />
-                {children}
-              </main>
-
-              <Footer />
-            </div>
-          </SectionContainer>
-        </ThemeProviders>
+      <body className={`h-full relative`}>
+        <div className="h-dvh">
+          <Navbar />
+          <main>
+            <div className="mx-auto max-w-full">{children}</div>
+          </main>
+        </div>
       </body>
     </html>
   );

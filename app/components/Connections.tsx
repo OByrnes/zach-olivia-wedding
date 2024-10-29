@@ -1,10 +1,10 @@
 "use client";
 import { Button } from "@headlessui/react";
 import React, { FC, useEffect, useState } from "react";
-const blue_words = ["Beer", "Toxic", "podcast", "Dayton"];
+const purple_words = ["Beer", "Toxic", "podcast", "Dayton"];
 const green_words = ["Penn", "Belgium", "Carolina", "Connecticut"];
-const yellow_words = ["Squirrel", "Corgi", "Chicken", "walk"];
-const purple_words = ["Engineer", "Smart", "Baker", "Games"];
+const blue_words = ["Squirrel", "Corgi", "Chicken", "walk"];
+const yellow_words = ["", "Jiu Jitsu", "Baker", "Games"];
 const WordComponent: FC<{
   word: string;
   onClick: (word: string) => void;
@@ -64,14 +64,14 @@ const CorrectRow: FC<{ row_color: string }> = ({ row_color }) => {
   };
   const reason = () => {
     switch (row_color) {
-      case "yellow":
+      case "blue":
         return "Words that make Kalia go crazy";
       case "green":
-        return "Where we went after high school";
-      case "blue":
-        return "How we met";
+        return "Where we went after high school: Olivia went to Belgium then North Carolina, Zach went to Penn then Conneticut";
+      case "purple":
+        return "How we met: We met at a Brew pub in Dayton called 'Toxic' Olivia was listening to podcasts";
       default:
-        return "Why the future in-laws approve";
+        return "Hobbies and interests";
     }
   };
   return (
@@ -123,7 +123,7 @@ export const Connections = () => {
   const [jiggle, setJiggle] = useState<boolean>(false);
   const [grid, setGrid] = React.useState<string[][]>([
     ["Connecticut", "Squirrel", "Toxic", "Chicken"],
-    ["Carolina", "Engineer", "walk", "Penn"],
+    ["Carolina", "Jiu Jitsu", "walk", "Penn"],
     ["Games", "Dayton", "Smart", "podcast"],
     ["Corgi", "Baker", "Belgium", "Beer"],
   ]);
