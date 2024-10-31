@@ -35,8 +35,8 @@ export const Navbar = ({
 }) => {
   const path = usePathname();
   return (
-    <div>
-      <Disclosure as="nav" className="bg-blue-950 h-24 ">
+    <div className="bg-blue-950/50 sticky w-full top-0 z-50">
+      <Disclosure as="nav" className="h-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-24 items-center justify-between">
             <div className="flex items-center">
@@ -62,16 +62,6 @@ export const Navbar = ({
                       {item.name}
                     </Link>
                   ))}
-                </div>
-              </div>
-              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center gap-4">
-                  <h1 className="tracking-tight text-fuscia-100-900">
-                    Save the Date
-                  </h1>
-                  <h1 className="tracking-tight text-fuscia-100-900">
-                    May 3, 2024
-                  </h1>
                 </div>
               </div>
             </div>
@@ -154,7 +144,6 @@ export const Navbar = ({
           </div> */}
         </DisclosurePanel>
       </Disclosure>
-      <header className="bg-blue-850 shadow"></header>
     </div>
   );
 };

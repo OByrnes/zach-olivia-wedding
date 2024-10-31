@@ -4,7 +4,8 @@ import SectionContainer from "@/app/components/SectionContainer";
 import { Metadata } from "next";
 import Image from "next/image";
 import { Navbar } from "./components/Navbar";
-
+import flower_design from "../public/flower_design.png";
+import Footer from "./components/Footer";
 export const metadata: Metadata = {
   // metadataBase: new URL(siteMetadata.siteUrl),
   title: "Z & O",
@@ -37,9 +38,11 @@ export default function RootLayout({
       <body className={`h-full relative`}>
         <div className="h-dvh">
           <Navbar />
+
           <main>
             <div className="mx-auto max-w-full">{children}</div>
           </main>
+          <Footer />
         </div>
       </body>
     </html>

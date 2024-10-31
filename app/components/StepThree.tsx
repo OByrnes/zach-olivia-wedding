@@ -60,41 +60,55 @@ const StepThree: React.FC<StepThreeProps> = ({ formData, setFormData }) => {
     return formData;
   };
   return (
-    <div className="border border-blue-950 rounded-lg p-6 shadow-md max-w-lg mx-auto my-4 backdrop-grayscale-0 bg-purple-100/30">
+    <div className="drop-shadow-md size-full border-blue-950/90 grid gap-4 grid-cols-1 gap-3 p-6 shadow-md backdrop-grayscale-50 bg-blue-100/60">
       <h6 className="text-xl mb-4 text-blue-950">
         Anything we should know about you?
       </h6>
       <div>
         {formData.guests?.map((ele, i) => (
           <div key={ele.name}>
-            <input
-              type="text"
-              placeholder="Name"
-              value={ele.name}
-              onChange={(e) =>
-                setFormData((prev) =>
-                  editGuestName(prev, i, e.target.value || "")
-                )
-              }
-              className="w-full p-2 text-blue-950 border border-blue-950 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-950"
-            />
-            <input
-              type="text"
-              placeholder="Comments"
-              value={ele.comments}
-              onChange={(e) =>
-                setFormData((prev) =>
-                  editGuestComments(prev, i, e.target.value || "")
-                )
-              }
-              className="w-full text-blue-950 p-2 border border-blue-950 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-950"
-            />
-            <div className="w-full p-2 border border-blue-950 rounded-md mb-4 bg-white-100 focus:outline-none focus:ring-2 focus:ring-blue-950">
-              <label className="text-blue-950">Dietary Restrictions:</label>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium leading-6 text-blue-950"
+            >
+              <input
+                type="text"
+                placeholder="Name"
+                value={ele.name}
+                onChange={(e) =>
+                  setFormData((prev) =>
+                    editGuestName(prev, i, e.target.value || "")
+                  )
+                }
+                className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-950"
+              />
+            </label>
+            <label
+              htmlFor="comments"
+              className="block text-sm font-medium leading-6 text-blue-950"
+            >
+              <span className="text-blue-950">First and Last Name</span>
+              <input
+                type="text"
+                placeholder="Comments"
+                value={ele.comments}
+                onChange={(e) =>
+                  setFormData((prev) =>
+                    editGuestComments(prev, i, e.target.value || "")
+                  )
+                }
+                className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-950"
+              />
+            </label>
+            <div className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-950">
+              <label className="text-blue-950 block w-full">
+                Dietary Restrictions:
+              </label>
               {dietaryOptions.map((option) => (
-                <label className="text-blue-950 " key={option}>
+                <label className="text-blue-950  mr-1" key={option}>
                   <input
                     type="checkbox"
+                    className="mt-0 px-1 mr-1 border-1 border-gray-200 focus:ring-0 focus:border-blue-950"
                     checked={ele.diet?.includes(option) || false}
                     onChange={(e) => {
                       const newDiet = e.target.checked

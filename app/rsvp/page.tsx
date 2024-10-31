@@ -6,7 +6,7 @@ import styles from "../styles.module.css";
 import background from "../../public/background.jpg";
 const RSVP: NextPage = () => {
   return (
-    <div className="">
+    <div className="w-full ">
       <div className={styles.bgWrap}>
         <Image
           alt="Background image"
@@ -21,7 +21,9 @@ const RSVP: NextPage = () => {
         />
       </div>
 
-      <main className={`flex flex-col px-1 py-1 ${styles.bgText}`}>
+      <main
+        className={`flex items-center justify-center min-h-screen  ${styles.bgText}`}
+      >
         <MultiStepForm submitForm={handleRsvp} />
       </main>
     </div>

@@ -1,10 +1,14 @@
 "use client";
 import { Button } from "@headlessui/react";
 import React, { FC, useEffect, useState } from "react";
-const purple_words = ["Beer", "Toxic", "podcast", "Dayton"];
-const green_words = ["Penn", "Belgium", "Carolina", "Connecticut"];
-const blue_words = ["Squirrel", "Corgi", "Chicken", "walk"];
-const yellow_words = ["", "Jiu Jitsu", "Baker", "Games"];
+// ["Connecticut", "Squirrel", "Toxic", "Chicken"],
+// ["Carolina", "Jiu Jitsu", "walk", "Penn"],
+// ["Games", "Dayton", "Smart", "podcast"],
+// ["Corgi", "Baker", "Belgium", "Beer"],
+const yellow_words = ["Values", "Humor", "Love", "Life"];
+const green_words = ["Jersey", "Belgium", "Switzerland", "Connecticut"];
+const blue_words = ["Squirrel", "Corgi", "Chicken", "Butt"];
+const purple_words = ["Podcasts", "Jiu Jitsu", "Baker", "Paint"];
 const WordComponent: FC<{
   word: string;
   onClick: (word: string) => void;
@@ -122,10 +126,10 @@ export const Connections = () => {
   const [selected, setSelected] = React.useState<string[]>([]);
   const [jiggle, setJiggle] = useState<boolean>(false);
   const [grid, setGrid] = React.useState<string[][]>([
-    ["Connecticut", "Squirrel", "Toxic", "Chicken"],
-    ["Carolina", "Jiu Jitsu", "walk", "Penn"],
-    ["Games", "Dayton", "Smart", "podcast"],
-    ["Corgi", "Baker", "Belgium", "Beer"],
+    ["Butt", "Paint", "Belgium", "Switzerland"],
+    ["Chicken", "Podcasts", "Values", "Corgi"],
+    ["Connecticut", "Love", "Humor", "Jiu Jitsu"],
+    ["Life", "Jersey", "Squirrel", "Baker"],
   ]);
   const triggerJiggle = () => {
     setJiggle(true);
@@ -183,7 +187,16 @@ export const Connections = () => {
     }
   };
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center">
+    <div className="h-full flex flex-col justify-center items-center">
+      {jiggle ? (
+        <div
+          className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4"
+          role="alert"
+        >
+          <p className="font-bold">Not Quite</p>
+          <p>All of these categories are related to Zach and Olivia</p>
+        </div>
+      ) : null}
       <h3 className="title">Z + O Connections</h3>
       <div className="fieldset">
         {correctlyGuessed.map((ele) => (

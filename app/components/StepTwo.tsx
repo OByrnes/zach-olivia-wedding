@@ -26,39 +26,54 @@ const StepTwo: React.FC<StepTwoProps> = ({ formData, setFormData, errors }) => {
     }
   };
   return (
-    <div className="border border-blue-950 rounded-lg p-6 shadow-md max-w-lg mx-auto my-4 backdrop-grayscale-0 bg-purple-100/30">
-      <h6 className="text-xl mb-4 text-blue-950">
-        How many people are in your party?
-      </h6>
-      <input
-        type="number"
-        placeholder="Number"
-        value={formData.number || ""}
-        onChange={(e) =>
-          setFormData({ ...formData, number: Number(e.target.value) })
-        }
-        className="w-full p-2 border text-blue-950 border-blue-950 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-950"
-      />
+    <div className="drop-shadow-md size-full border-blue-950/90 grid gap-4 grid-cols-1 gap-3 p-6 shadow-md backdrop-grayscale-50 bg-blue-100/60">
+      <label
+        htmlFor="number"
+        className="block text-sm font-medium leading-6 text-blue-950"
+      >
+        <span className="text-blue-950">
+          How many people are in your party?{" "}
+        </span>
+        <input
+          type="number"
+          placeholder="Number"
+          value={formData.number || ""}
+          onChange={(e) =>
+            setFormData({ ...formData, number: Number(e.target.value) })
+          }
+          className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-950"
+        />
+      </label>
       {errors.number ? (
         <label className="text-red-500">{errors.number}</label>
       ) : null}
       {formData.number && formData.number > 1 ? (
         <>
-          <input
-            type="text"
-            placeholder="Guest names"
-            value={names}
-            onChange={(e) => {
-              setFormData({ ...formData, guests: make_guests(e.target.value) });
-              setNames(e.target.value || "");
-            }}
-            className="w-full p-2 border text-blue-950 border-blue-950 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-950"
-          />
-          {names.split(",").length !== (formData.number || 0) - 1 ? (
-            <label className="text-red-500">
-              You might be miss counting the names
-            </label>
-          ) : null}
+          <label
+            htmlFor="names"
+            className="block text-sm font-medium leading-6 text-blue-950"
+          >
+            <span className="text-blue-950">
+              {formData.number && formData.number > 2
+                ? "What are their names?"
+                : "What is their name?"}
+            </span>
+            <input
+              id="names"
+              type="text"
+              placeholder="Guest names"
+              value={names}
+              onChange={(e) => {
+                setFormData({
+                  ...formData,
+                  guests: make_guests(e.target.value),
+                });
+                setNames(e.target.value || "");
+              }}
+              className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-950"
+            />
+          </label>
+
           <label className="text-blue-950">
             Please separate names with a comma.
           </label>

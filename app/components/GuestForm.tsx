@@ -82,6 +82,7 @@ const MultiStepForm: React.FC<{
       return true;
     }
   }, [formData, step]);
+  const verifySubmit = useMemo(() => validateRSVPGroup(formData), [formData]);
   const handleNext = () => setStep((prev) => Math.min(prev + 1, 3));
   const handleBack = () => setStep((prev) => Math.max(prev - 1, 1));
   const handleSubmit = () => {
@@ -126,7 +127,7 @@ const MultiStepForm: React.FC<{
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 relative">
+    <div className="size-6/12 mx-auto p-6 relative">
       {/* Render the current step */}
       <div className="transition duration-300 ease-in-out transform">
         {renderStep()}
@@ -136,20 +137,23 @@ const MultiStepForm: React.FC<{
       {step > 1 && (
         <button
           onClick={handleBack}
-          className="absolute -left-4 top-1/2 transform -translate-y-1/2 p-4 bg-purple-100 text-blue-950 rounded-full shadow-lg hover:bg-purple-200 focus:outline-none"
+          className="absolute -left-4 top-1/2 transform -translate-y-1/2 p-4 hover:bg-purple-100/50 text-blue-950 rounded-full hover:shadow-lg bg-transparent focus:outline-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
+            fill="currentColor"
+            className="size-6 box-shadow-lg hover:box-shadow-0"
           >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15 19l-7-7 7-7"
+              fillRule="evenodd"
+              d="M10.72 11.47a.75.75 0 0 0 0 1.06l7.5 7.5a.75.75 0 1 0 1.06-1.06L12.31 12l6.97-6.97a.75.75 0 0 0-1.06-1.06l-7.5 7.5Z"
+              clipRule="evenodd"
+            />
+            <path
+              fillRule="evenodd"
+              d="M4.72 11.47a.75.75 0 0 0 0 1.06l7.5 7.5a.75.75 0 1 0 1.06-1.06L6.31 12l6.97-6.97a.75.75 0 0 0-1.06-1.06l-7.5 7.5Z"
+              clipRule="evenodd"
             />
           </svg>
         </button>
@@ -157,27 +161,32 @@ const MultiStepForm: React.FC<{
       {step < 3 ? (
         <button
           onClick={handleNext}
-          className="absolute top-1/2 -right-4 transform -translate-y-1/2 p-4 bg-blue-950 text-white rounded-full shadow-lg hover:bg-blue-900 focus:outline-none"
+          disabled={!verifyNext}
+          className="absolute disabled:text-slate-500 top-1/2 -right-4 transform -translate-y-1/2 p-4 hover:bg-blue-950 text-blue-950 hover:text-purple-100 rounded-full hover:shadow-lg bg-transparent focus:outline-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
             viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
+            fill="currentColor"
+            className="size-6 size-6 box-shadow-lg hover:shadow-0"
           >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 5l7 7-7 7"
+              fillRule="evenodd"
+              d="M13.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L11.69 12 4.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+              clipRule="evenodd"
+            />
+            <path
+              fillRule="evenodd"
+              d="M19.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06L17.69 12l-6.97-6.97a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+              clipRule="evenodd"
             />
           </svg>
         </button>
       ) : (
         <button
+          disabled={!verifySubmit}
           onClick={handleSubmit}
-          className="absolute top-1/2 -right-5 transform -translate-y-1/2 p-4 bg-blue-950 text-white rounded-full shadow-lg hover:bg-blue-900 focus:outline-none"
+          className="absolute top-1/2 disabled:text-slate-500 -right-5 transform -translate-y-1/2 p-4 hover:bg-blue-950 text-blue-950 hover:text-purple-100 rounded-full hover:shadow-lg focus:outline-none"
         >
           Submit
         </button>
