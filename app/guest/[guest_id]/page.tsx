@@ -18,14 +18,14 @@ export default async function GroupInfo({
     <div className={styles.container}>
       <h1>Guest Information</h1>
 
-      <div key={group.id}>
-        <h2>{`Group of: ${group.name} `}</h2>
-        <p>Email: {group.email}</p>
-        <p>Total number of guests in group: {group.number}</p>
-        <Link href={`/group/${group.id}`}>Edit group</Link>
+      <div key={group?.id}>
+        <h2>{`Group of: ${group?.name} `}</h2>
+        <p>Email: {group?.email}</p>
+        <p>Total number of guests in group: {group?.number}</p>
+        <Link href={`/group/${group?.id}`}>Edit group</Link>
         <h3>Guests:</h3>
         <ul>
-          {group.guests.map((guest: Guest) => (
+          {group?.guests.map((guest: Guest) => (
             <div key={guest.id} className={styles.card}>
               <li>
                 <p>Name: {guest.name}</p>
