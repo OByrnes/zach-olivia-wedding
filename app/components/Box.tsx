@@ -1,4 +1,4 @@
-import styles from "./box.module.scss";
+import styles from "./Box.module.scss";
 import classNames from "classnames/bind";
 import { BoxStatus } from "./types";
 

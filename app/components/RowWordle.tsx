@@ -1,5 +1,5 @@
 import Box from "./Box";
-import styles from "./row.module.scss";
+import styles from "./Row.module.scss";
 import { BoxStatus } from "./types";
 
 interface CompletedRowProps {
