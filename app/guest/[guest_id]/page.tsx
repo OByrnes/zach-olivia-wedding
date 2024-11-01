@@ -1,4 +1,3 @@
-import { PrismaClient } from "@prisma/client";
 import { Group, Guest } from "@prisma/client/wasm";
 import styles from "./GuestInfo.module.css";
 import Link from "next/link";

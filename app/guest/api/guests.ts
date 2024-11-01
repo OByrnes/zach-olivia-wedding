@@ -18,7 +18,7 @@ export const getGuest = async (guest_id: string) => {
 
 export const updateGuest = async (guest_id: string, guest: Guest) => {
   const {name, comments, diet} = guest
-  const updated_guest = await prisma.guest.update.update({
+  const updated_guest = await prisma.guest.update({
     where: { id: parseInt(guest_id as string, 10) },
     data: { name, comments, diet },
   });
