@@ -10,7 +10,7 @@ import gal8 from "@/public/gal8.jpg";
 import gal9 from "@/public/gal9.jpg";
 import gal10 from "@/public/gal10.jpg";
 import gal11 from "@/public/gal11.jpg";
-
+import gal12 from "@/public/gal12.jpg";
 import Image from "next/image";
 
 const Gallery: NextPage = () => {
@@ -23,7 +23,7 @@ const Gallery: NextPage = () => {
       <div className="w-full grid grid-flow-col grid-cols-3 grid-rows-3 gap-2">
         <div style={{ position: "relative", height: "400px" }}>
           <Image
-            alt="Background image"
+            alt="galleryImage1"
             src={gal1}
             placeholder="blur"
             fill
@@ -36,7 +36,7 @@ const Gallery: NextPage = () => {
 
         <div style={{ position: "relative", height: "400px" }}>
           <Image
-            alt="Background image"
+            alt="galleryImage1"
             src={gal2}
             placeholder="blur"
             fill
@@ -48,7 +48,7 @@ const Gallery: NextPage = () => {
         </div>
         <div style={{ position: "relative", height: "400px" }}>
           <Image
-            alt="Background image"
+            alt="galleryImage2"
             src={gal3}
             placeholder="blur"
             fill
@@ -60,7 +60,7 @@ const Gallery: NextPage = () => {
         </div>
         <div style={{ position: "relative", height: "400px" }}>
           <Image
-            alt="Background image"
+            alt="galleryImage3"
             src={gal4}
             placeholder="blur"
             fill
@@ -72,7 +72,7 @@ const Gallery: NextPage = () => {
         </div>
         <div style={{ position: "relative", height: "400px" }}>
           <Image
-            alt="Background image"
+            alt="galleryImage4"
             src={gal5}
             placeholder="blur"
             fill
@@ -84,7 +84,7 @@ const Gallery: NextPage = () => {
         </div>
         <div style={{ position: "relative", height: "400px" }}>
           <Image
-            alt="Background image"
+            alt="galleryImage5"
             src={gal6}
             placeholder="blur"
             fill
@@ -96,7 +96,7 @@ const Gallery: NextPage = () => {
         </div>
         <div style={{ position: "relative", height: "400px" }}>
           <Image
-            alt="Background image"
+            alt="galleryImage6"
             src={gal7}
             placeholder="blur"
             fill
@@ -108,7 +108,7 @@ const Gallery: NextPage = () => {
         </div>
         <div style={{ position: "relative", height: "400px" }}>
           <Image
-            alt="Background image"
+            alt="galleryImage7"
             src={gal8}
             placeholder="blur"
             fill
@@ -120,7 +120,7 @@ const Gallery: NextPage = () => {
         </div>
         <div style={{ position: "relative", height: "400px" }}>
           <Image
-            alt="Background image"
+            alt="galleryImage8"
             src={gal9}
             placeholder="blur"
             fill
@@ -132,7 +132,7 @@ const Gallery: NextPage = () => {
         </div>
         <div style={{ position: "relative", height: "400px" }}>
           <Image
-            alt="Background image"
+            alt="galleryImage9"
             src={gal10}
             placeholder="blur"
             fill
@@ -144,8 +144,20 @@ const Gallery: NextPage = () => {
         </div>
         <div style={{ position: "relative", height: "400px" }}>
           <Image
-            alt="Background image"
+            alt="galleryImage10"
             src={gal11}
+            placeholder="blur"
+            fill
+            sizes="(min-width: 808px) 50vw, 100vw"
+            style={{
+              objectFit: "cover", // cover, contain, none
+            }}
+          />
+        </div>
+        <div style={{ position: "relative", height: "400px" }}>
+          <Image
+            alt="galleryImage12"
+            src={gal12}
             placeholder="blur"
             fill
             sizes="(min-width: 808px) 50vw, 100vw"
