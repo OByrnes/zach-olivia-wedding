@@ -4,7 +4,7 @@ import gal2 from "@/public/gal2.jpg";
 import gal3 from "@/public/gal3.jpg";
 import gal4 from "@/public/gal4.jpg";
 import gal5 from "@/public/gal5.jpg";
-import gal6 from "@/public/gal6.jpg";
+import gal6 from "@/public/galleryImage6.jpg";
 import gal7 from "@/public/gal7.jpg";
 import gal8 from "@/public/gal8.jpg";
 import gal9 from "@/public/gal9.jpg";
