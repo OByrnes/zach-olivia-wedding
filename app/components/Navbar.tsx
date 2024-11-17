@@ -35,7 +35,7 @@ export const Navbar = ({
 }) => {
   const path = usePathname();
   return (
-    <div className="bg-blue-950/50 sticky w-full top-0 z-50">
+    <div className="bg-blue-950/50 w-full top-0 z-50">
       <Disclosure as="nav" className="h-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-24 items-center justify-between">

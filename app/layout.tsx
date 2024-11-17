@@ -1,4 +1,4 @@
-import { Open_Sans, Poppins } from "next/font/google";
+import { Italiana, Open_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 import SectionContainer from "@/app/components/SectionContainer";
 import { Metadata } from "next";
@@ -18,11 +18,11 @@ const poppins = Poppins({
   display: "swap",
   variable: "--font-space-poppins",
 });
-const open_sans = Open_Sans({
-  weight: ["300", "400", "600"],
+const headingFont = Italiana({
+  weight: ["400"],
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-space-open-sans",
+  variable: "--font-space-header",
 });
 
 export default function RootLayout({
@@ -31,19 +31,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${poppins.variable} ${open_sans.variable} h-full bg-blue-950`}
-    >
-      <body className={`h-full relative`}>
-        <div className="h-dvh">
+    <html lang="en" className={`${poppins.variable} ${headingFont.variable}`}>
+      <body className={`size-full relative`}>
+        <main className={`size-full relative`}>
           <Navbar />
 
-          <main>
-            <div className="mx-auto max-w-full">{children}</div>
-          </main>
-          <Footer />
-        </div>
+          <div className="size-full">{children}</div>
+        </main>
+        <Footer />
       </body>
     </html>
   );

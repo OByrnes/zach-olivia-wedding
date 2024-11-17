@@ -4,9 +4,9 @@
 
 
 :root {
-  --foreground-rgb:237, 233, 254;
+  --foreground-rgb:23,37,84;
 
-  --secondary-rgb: 237, 233, 254;
+  --secondary-rgb: 23,29,37;
   --background-start-rgb: 237, 233, 254;
   --background-end-rgb:30, 27, 75;
   --primary-color-r: 0;
@@ -22,20 +22,22 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 237, 233, 254;
-    --secondary-rgb: 237, 233, 254;
-    --background-start-rgb: 30, 27, 75;
-    --background-end-rgb: 30, 27, 75;
+    --secondary-rgb: 30, 27, 75;
+    --background-start-rgb: 23,37,84;
+    --background-end-rgb: 23,29,37;
     --primary-color-r: 250;
   --primary-color-g: 247;
   --primary-color-b: 255;
-  --primary-background-r: 0;
-  --primary-background-g: 18;
-  --primary-background-b: 71;
+  --primary-background-r: 23;
+  --primary-background-g: 37;
+  --primary-background-b:84;
   --hover-delta: 5;
   }
 }
-
-h1, h2, h3 { font-family: var(--font-space-poppins) }
+html{
+  height: auto;
+}
+h1, h2, h3 { font-family: var(--font-space-header) }
 body, p { font-family: var(--font-space-poppins) }
 
 body {
@@ -43,7 +45,7 @@ body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
-      transparent,
+      rgb(var(--background-start-rgb)),
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
@@ -53,7 +55,8 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}.header {
+}
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;

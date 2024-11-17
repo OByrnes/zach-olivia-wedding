@@ -4,9 +4,10 @@ import MultiStepForm from "../components/GuestForm";
 import Image from "next/image";
 import styles from "../styles.module.css";
 import background from "../../public/background.jpg";
+
 const RSVP: NextPage = () => {
   return (
-    <div className="w-full ">
+    <div className="size-full relative ">
       <div className={styles.bgWrap}>
         <Image
           alt="Background image"
@@ -22,7 +23,7 @@ const RSVP: NextPage = () => {
       </div>
 
       <main
-        className={`flex items-center justify-center min-h-screen  ${styles.bgText}`}
+        className={`flex items-center justify-evenly min-h-screen  ${styles.bgText}`}
       >
         <MultiStepForm submitForm={handleRsvp} />
       </main>

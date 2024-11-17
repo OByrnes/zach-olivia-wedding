@@ -1,55 +1,43 @@
 import Image from "next/image";
 import BackgroundImage from "../public/background.jpg";
+import Link from "next/link";
 
 export default function Home() {
-  const welcome = [
-    [
-      "We are thrilled to celebrate this moment with you, our friends and family!",
-      "Your presence fills our hearts with joy and means so much to us.",
-    ],
-
-    [
-      "We are thankful to have all of you in the future we are building together.",
-    ],
-    [
-      "Whether you are traveling near or far away, we appreciate the time and effort you are taking to be with us on our big day.",
-    ],
-    [
-      "Please explore this website for all the details needed to make your experience easy and enjoyable. We’ve included information about the wedding and a little bit of fun.",
-    ],
-    [
-      "Thank you for being a part of our story. We can’t wait to celebrate with you!",
-    ],
-  ];
   return (
-    <div className="h-full relative w-full">
-      <div className="w-full h-full flex relative z-20">
-        <div className="w-1/3 h-full backdrop-grayscale bg-purple-100/[.75] mx-16 my-8 ring-2 ring-blue-950/[.75] p-4">
-          <div className="flex flex-col justify-start px-8">
-            <h3 className="py-2 text-lg bold text-blue-950 font-semibold">
-              Welcome!
+    <div className="relative size-full">
+      <div className="size-full flex bg-gradient-to-b from-blue-950/30 to-purple-300/30 relative z-20 pt-20 pl-20">
+        <div className="flex flex-wrap w-2/3 z-20 gap-2">
+          <div className="flex w-full grow items-center justify-between">
+            <h1 className="text-6xl md:text-8xl tracking-tight md:tracking-widest text-white text-justify drop-shadow-lg">
+              Zach
+            </h1>
+            <h3 className="text-2xl md:text-4xl font-extrabold text-white text-justify drop-shadow-lg">
+              and
             </h3>
+            <h1 className="text-6xl md:text-8xl tracking-tight md:tracking-widest  text-white col-span-2 text-justify drop-shadow-lg">
+              Olivia
+            </h1>
           </div>
-          {welcome.map((ele) => (
-            <div
-              key={ele.join("-")}
-              className="flex flex-col justify-start px-8"
-            >
-              {ele.map((innerEle, i) => (
-                <p
-                  key={innerEle}
-                  className="text-base text-blue-950 italic leading-loose"
-                >
-                  {innerEle}
-                </p>
-              ))}
-            </div>
-          ))}
-          <div className="flex flex-col justify-start px-8">
-            <h3 className="text-blue-950 text-lg">Zach & Olivia</h3>
-          </div>
+          <h2 className="text-2xl w-full md:text-8xl text-white text-center drop-shadow-lg">
+            are getting
+          </h2>
+
+          <h1 className="text-6xl w-full md:text-8xl tracking-tight md:tracking-wide text-white text-center drop-shadow-lg">
+            Married!
+          </h1>
         </div>
-        <div className="w-2/3"></div>
+
+        <div className="w-1/3 h-12 flex flex-col justify-center gap-4 items-center mt-10">
+          <Link
+            href="/rsvp"
+            className="bg-blue-950 hover:bg-blue-800 text-white font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all transform hover:scale-105 active:scale-95 animate-bounce-slow"
+          >
+            RSVP
+          </Link>
+          <h2 className="tracking-tight md:tracking-wide text-purple-350 text-center drop-shadow-lg">
+            We can&apos;t wait to see you!
+          </h2>
+        </div>
       </div>
       <div className="absolute inset-0 z-0 h-full brightness-80">
         <Image

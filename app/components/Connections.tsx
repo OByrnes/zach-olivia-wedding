@@ -1,14 +1,10 @@
 "use client";
 import { Button } from "@headlessui/react";
 import React, { FC, useEffect, useState } from "react";
-// ["Connecticut", "Squirrel", "Toxic", "Chicken"],
-// ["Carolina", "Jiu Jitsu", "walk", "Penn"],
-// ["Games", "Dayton", "Smart", "podcast"],
-// ["Corgi", "Baker", "Belgium", "Beer"],
 const yellow_words = ["Values", "Humor", "Love", "Life"];
 const green_words = ["Jersey", "Belgium", "Switzerland", "Connecticut"];
-const blue_words = ["Squirrel", "Corgi", "Chicken", "Butt"];
-const purple_words = ["Podcasts", "Jiu Jitsu", "Baker", "Paint"];
+const purple_words = ["Squirrel", "Corgi", "Chicken", "Butt"];
+const blue_words = ["Podcasts", "Jiu Jitsu", "Baker", "Paint"];
 const WordComponent: FC<{
   word: string;
   onClick: (word: string) => void;
@@ -69,13 +65,13 @@ const CorrectRow: FC<{ row_color: string }> = ({ row_color }) => {
   const reason = () => {
     switch (row_color) {
       case "blue":
-        return "Words that make Kalia go crazy";
-      case "green":
-        return "Where we went after high school: Olivia went to Belgium then North Carolina, Zach went to Penn then Conneticut";
-      case "purple":
-        return "How we met: We met at a Brew pub in Dayton called 'Toxic' Olivia was listening to podcasts";
-      default:
         return "Hobbies and interests";
+      case "green":
+        return "Places we lived before moving to Dayton";
+      case "purple":
+        return "Words that excite Kalia";
+      default:
+        return "Things we share";
     }
   };
   return (
@@ -89,7 +85,6 @@ const CorrectRow: FC<{ row_color: string }> = ({ row_color }) => {
 };
 
 export const Connections = () => {
-  const [guessesRemaining, setGuessesRemaining] = React.useState();
   const [correctlyGuessed, setCorrectlyGuessed] = React.useState<string[]>([]);
   const get_remaining_words = (correct: string[]) => {
     let remaining_words: string[] = [];
@@ -125,6 +120,7 @@ export const Connections = () => {
   };
   const [selected, setSelected] = React.useState<string[]>([]);
   const [jiggle, setJiggle] = useState<boolean>(false);
+  const [alertOpen, setAlertOpen] = useState<boolean>(false);
   const [grid, setGrid] = React.useState<string[][]>([
     ["Butt", "Paint", "Belgium", "Switzerland"],
     ["Chicken", "Podcasts", "Values", "Corgi"],
@@ -136,6 +132,12 @@ export const Connections = () => {
     setTimeout(() => {
       setJiggle(false);
     }, 500); // 0.5 seconds
+  };
+  const triggerAlert = () => {
+    setAlertOpen(true);
+    setTimeout(() => {
+      setAlertOpen(false);
+    }, 1000); // 0.5 seconds
   };
 
   const isCorrect = (words: string[]) => {
