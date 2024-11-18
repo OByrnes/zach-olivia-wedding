@@ -36,9 +36,9 @@ export default function RootLayout({
         <main className={`size-full relative`}>
           <Navbar />
 
-          <div className="size-full">{children}</div>
+          <div className="md:min-h-screen">{children}</div>
+          <Footer />
         </main>
-        <Footer />
       </body>
     </html>
   );

@@ -21,20 +21,18 @@ export default function Footer() {
     ],
   ];
   return (
-    <footer className="absolute end-0 bottomalign-center justify-center w-full z-50 hover:bg-blue-950 flex space-x-6 shadow-lg">
-      <div className="backdrop-grayscale bg-purple-100/[.75] mx-16 my-8 ring-2 ring-blue-950/[.75] p-4">
-        <div className="flex flex-col justify-start px-8">
-          <h3 className="py-2 text-lg bold text-blue-950 font-semibold">
-            Welcome!
-          </h3>
+    <footer className="absolute end-0 bottomalign-center justify-center w-full z-50 hover:bg-blue-950 flex md:space-x-6 shadow-lg">
+      <div className="md:mx-16 md:my-8 ring-2 ring-blue-950/[.75] p-4 scroll-smooth focus:scroll-auto h-96 overscroll-contain overflow-scroll">
+        <div className="flex flex-col justify-start md:px-8">
+          <h3 className="py-2 text-lg bold font-semibold">Welcome!</h3>
         </div>
         {welcome.map((ele) => (
-          <div key={ele.join("-")} className="flex flex-col justify-start px-8">
+          <div
+            key={ele.join("-")}
+            className="flex flex-col justify-start md:px-8"
+          >
             {ele.map((innerEle, i) => (
-              <p
-                key={innerEle}
-                className="text-base text-blue-950 italic leading-loose"
-              >
+              <p key={innerEle} className="text-base italic leading-loose">
                 {innerEle}
               </p>
             ))}

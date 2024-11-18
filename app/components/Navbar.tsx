@@ -9,6 +9,9 @@ import {
   MenuButton,
   MenuItem,
   MenuItems,
+  Popover,
+  PopoverButton,
+  PopoverPanel,
 } from "@headlessui/react";
 import { Bars3Icon, HeartIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useParams, usePathname } from "next/navigation";
@@ -46,7 +49,7 @@ export const Navbar = ({
                 </Link>
               </div>
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4">
+                <div className="ml-10 flex items-baseline space-x-4 bg-blue-950 z-20">
                   {navigation.map((item) => (
                     <Link
                       key={item.name}
@@ -66,83 +69,21 @@ export const Navbar = ({
               </div>
             </div>
 
-            <div className="max-md:hidden" id="mobile-menu">
+            <div className="md:hidden" id="mobile-menu">
               {/* Mobile menu button */}
-              <DisclosureButton className="group relative inline-flex items-start justify-center rounded-md bg-blue-950 p-2 text-fuscia-100-400 hover:bg-blue-850 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                <span className="absolute -inset-0.5" />
-                <span className="sr-only">Open main menu</span>
-                <Bars3Icon
-                  aria-hidden="true"
-                  className="block h-6 w-6 group-data-[open]:hidden"
-                />
-                <XMarkIcon
-                  aria-hidden="true"
-                  className="hidden h-6 w-6 group-data-[open]:block"
-                />
-              </DisclosureButton>
+              <Popover className="relative">
+                <PopoverButton>Menu</PopoverButton>
+                <PopoverPanel anchor="bottom" className="flex flex-col">
+                  {navigation.map((ele) => (
+                    <Link key={ele.href} href={ele.href}>
+                      {ele.name}
+                    </Link>
+                  ))}
+                </PopoverPanel>
+              </Popover>
             </div>
           </div>
         </div>
-
-        <DisclosurePanel className="max-md:hidden">
-          <div className="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-            {navigation.map((item) => (
-              <DisclosureButton
-                key={item.name}
-                as="a"
-                href={item.href}
-                aria-current={item.href === path ? "page" : undefined}
-                className={classNames(
-                  item.current
-                    ? "bg-blue-850 text-white"
-                    : "text-fuscia-100 hover:bg-blue-850 hover:text-white",
-                  "block rounded-md px-3 py-2 text-base font-medium"
-                )}
-              >
-                {item.name}
-              </DisclosureButton>
-            ))}
-          </div>
-          {/* <div className="border-t border-gray-700 pb-3 pt-4">
-            <div className="flex items-center px-5">
-              <div className="flex-shrink-0">
-                <img
-                  alt=""
-                  src={user.imageUrl}
-                  className="h-10 w-10 rounded-full"
-                />
-              </div>
-              <div className="ml-3">
-                <div className="text-base font-medium leading-none text-white">
-                  {user.name}
-                </div>
-                <div className="text-sm font-medium leading-none text-fuscia-100-400">
-                  {user.email}
-                </div>
-              </div>
-              <button
-                type="button"
-                className="relative ml-auto flex-shrink-0 rounded-full bg-blue-950 p-1 text-fuscia-100-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-              >
-                <span className="absolute -inset-1.5" />
-                <span className="sr-only">View notifications</span>
-                <BellIcon aria-hidden="true" className="h-6 w-6" />
-              </button>
-            </div>
-            <div className="mt-3 space-y-1 px-2">
-              {userNavigation.map((item) => (
-                <DisclosureButton
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className="block rounded-md px-3 py-2 text-base font-medium text-fuscia-100-400 hover:bg-blue-850 hover:text-white"
-                >
-                  {item.name}
-                </DisclosureButton>
-              ))}
-            </div>
-          </div> */}
-        </DisclosurePanel>
       </Disclosure>
     </div>
   );

@@ -2,6 +2,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
 import { RSVPGroup } from '@/app/types';
+import { redirect } from 'next/navigation';
 
 const prisma = new PrismaClient();
 
@@ -25,7 +26,7 @@ export default async function handleRsvp(RSVPGroup: RSVPGroup) {
         },
       });
 
-     return group
+     redirect(`guest/${group.id}`)
     } catch (error) {
       console.log(error)
     }

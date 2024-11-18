@@ -33,3 +33,22 @@ export const updateGroup = async (group_id: string, group: Group) => {
   })
   return updated_group
 }
+
+export const searchForGuest = async (searchTerm: string) => {
+  const guests =await prisma.guest.findMany({where: {name: {
+    contains: searchTerm,
+    mode: 'insensitive',
+  }}, include: {group: true}
+})
+  return guests
+}
+export const searchForGroup = async (searchTerm: string) => {
+  const groups = await prisma.group.findMany({where: {email: {
+    contains: searchTerm,
+    mode: 'insensitive',
+  }
+}, include: {guests: true}
+
+})
+  return groups
+}

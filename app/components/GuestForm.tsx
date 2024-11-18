@@ -49,15 +49,7 @@ function makeErrors(
   return errors;
 }
 const MultiStepForm: React.FC<{
-  submitForm: (data: RSVPGroup) => Promise<
-    | {
-        id: number;
-        email: string;
-        name: string;
-        number: number;
-      }
-    | undefined
-  >;
+  submitForm: (data: RSVPGroup) => Promise<void | undefined>;
 }> = ({ submitForm }) => {
   const [step, setStep] = useState<number>(1);
   const [formData, setFormData] = useState<Partial<RSVPGroup>>({});

@@ -1,10 +1,21 @@
 "use client";
-import { Button } from "@headlessui/react";
-import React, { FC, useEffect, useState } from "react";
+import {
+  Button,
+  Description,
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+} from "@headlessui/react";
+import React, { FC, useCallback, useEffect, useState } from "react";
+import hintBelgium from "@/public/hintbelgium.jpg";
+import hintKalia from "@/public/hintKalia.jpg";
+import hintHobbie from "@/public/hintHobbie.jpg";
+import Image from "next/image";
+
 const yellow_words = ["Values", "Humor", "Love", "Life"];
 const green_words = ["Jersey", "Belgium", "Switzerland", "Connecticut"];
 const purple_words = ["Squirrel", "Corgi", "Chicken", "Butt"];
-const blue_words = ["Podcasts", "Jiu Jitsu", "Baker", "Paint"];
+const blue_words = ["Podcasts", "Jiu Jitsu", "Baking", "Paint"];
 const WordComponent: FC<{
   word: string;
   onClick: (word: string) => void;
@@ -125,8 +136,10 @@ export const Connections = () => {
     ["Butt", "Paint", "Belgium", "Switzerland"],
     ["Chicken", "Podcasts", "Values", "Corgi"],
     ["Connecticut", "Love", "Humor", "Jiu Jitsu"],
-    ["Life", "Jersey", "Squirrel", "Baker"],
+    ["Life", "Jersey", "Squirrel", "Baking"],
   ]);
+  let [isOpen, setIsOpen] = useState(false);
+
   const triggerJiggle = () => {
     setJiggle(true);
     setTimeout(() => {
@@ -188,6 +201,34 @@ export const Connections = () => {
       setSelected((prevValue) => [...prevValue, word]);
     }
   };
+  const [hint, setHint] = useState({
+    img: hintBelgium,
+    txt: "Olivia at Carnivaal in Belgium, Zach went to Fas Nacht in Switzerland",
+  });
+  const getHint = (correctlyGuessed: string[]) => {
+    let hintImage = hintKalia;
+    let hintText =
+      "Olivia at Carnivaal in Belgium, Zach went to Fas Nacht in Switzerland";
+    if (!correctlyGuessed.includes("green")) {
+      return { img: hintBelgium, txt: hintText };
+    } else if (!correctlyGuessed.includes("blue")) {
+      return {
+        img: hintHobbie,
+        txt: "Zach goes to jiu jitsu classes in his spare time. Olivia likes to bake",
+      };
+    } else if (!correctlyGuessed.includes("purple")) {
+      return {
+        img: hintKalia,
+        txt: "Kalia is always on alert for Squirrels or dropped food especially chicken",
+      };
+    } else {
+      return { img: hintImage, txt: "Zach and Olivia are getting married." };
+    }
+  };
+  const openHint = () => {
+    setIsOpen(true);
+    setHint(getHint(correctlyGuessed));
+  };
   return (
     <div className="h-full flex flex-col justify-center items-center">
       {jiggle ? (
@@ -200,6 +241,34 @@ export const Connections = () => {
         </div>
       ) : null}
       <h3 className="title">Z + O Connections</h3>
+      <button onClick={() => openHint()}>Get a hint</button>
+      <Dialog
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        className="relative z-50"
+      >
+        <div className="fixed inset-0 flex w-3/4 h-3/4 items-center justify-center p-4">
+          <DialogPanel className="max-w-lg space-y-4 border p-12 bg-blue-950">
+            <DialogTitle className="font-bold">Hint</DialogTitle>
+            <Description>{hint.txt}</Description>
+            <div className="w-full h-64 relative">
+              <Image
+                alt="hint image"
+                src={hint.img}
+                placeholder="blur"
+                fill
+                sizes="(min-width: 608px) 50vw, 100vw"
+                style={{
+                  objectFit: "cover", // cover, contain, none
+                }}
+              />
+            </div>
+            <div className="flex gap-4">
+              <button onClick={() => setIsOpen(false)}>Got it!</button>
+            </div>
+          </DialogPanel>
+        </div>
+      </Dialog>
       <div className="fieldset">
         {correctlyGuessed.map((ele) => (
           <CorrectRow key={ele} row_color={ele} />

@@ -7,6 +7,7 @@ export interface GuestData {
 }
 
 export interface RSVPGroup {
+  id?: string | number;
   email: string;
   name: string;
   guests: GuestData[];

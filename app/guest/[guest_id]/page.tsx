@@ -21,7 +21,7 @@ export default async function GroupInfo({
         <h2>{`Group of: ${group?.name} `}</h2>
         <p>Email: {group?.email}</p>
         <p>Total number of guests in group: {group?.number}</p>
-        <Link href={`/group/${group?.id}`}>Edit group</Link>
+
         <h3>Guests:</h3>
         <ul>
           {group?.guests.map((guest: Guest) => (
