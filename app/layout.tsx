@@ -41,7 +41,7 @@ export default function RootLayout({
         <main className={`size-full relative`}>
           <Navbar />
 
-          <div className="min-h-screen mt-24">{children}</div>
+          <div className="min-h-screen mt-16">{children}</div>
           <Footer />
         </main>
       </body>
