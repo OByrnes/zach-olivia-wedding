@@ -60,19 +60,15 @@ const grid: CluesInputOriginal = {
       answer: "CUE",
     },
     "13": {
-      clue: "Finance term for return (abbr.)",
-
+      clue: "Stock Profitability (abbr.)",
       col: 0,
       row: 4,
-
       answer: "ROI",
     },
     "14": {
       clue: "___ Card (extra memory) (abbr.)",
-
       col: 5,
       row: 4,
-
       answer: "SD",
     },
     "16": {

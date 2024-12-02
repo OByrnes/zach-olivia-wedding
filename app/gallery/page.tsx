@@ -151,7 +151,7 @@ const Gallery: NextPage = () => {
     },
     // row
     {
-      classNames: "min-h-136 h-136 md:min-h-136 md:h-136 sm:col-span-3",
+      classNames: "min-h-136 h-136 md:min-h-136 md:h-136 sm:col-span-2",
       src: gal25,
     },
 
@@ -206,7 +206,7 @@ const Gallery: NextPage = () => {
       <h4 className="text-xl md:text-xl mb-4 text-center">
         Until then, check these goofy photos out
       </h4>
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-1">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1">
         {images.map((img, index) => (
           <div
             key={index}
