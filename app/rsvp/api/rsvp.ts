@@ -26,7 +26,7 @@ export default async function handleRsvp(RSVPGroup: RSVPGroup) {
         },
       });
 
-     redirect(`guest/${group.id}`)
+     redirect(`/guest/${group.id}`)
     } catch (error) {
       console.log(error)
     }

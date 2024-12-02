@@ -1,21 +1,15 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
+import { NavLinks } from "./NavLinks";
 import {
   Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
   Popover,
   PopoverButton,
   PopoverPanel,
 } from "@headlessui/react";
-import { Bars3Icon, HeartIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useParams, usePathname } from "next/navigation";
-import Logo from "../../public/May.svg";
+import { usePathname } from "next/navigation";
+import DarkLogo from "@/public/1.png";
+import LightLogo from "@/public/2.png";
+import { NavbarLogo } from "./NavLogo";
 const navigation = [
   { name: "Details", href: "/details", current: true },
   { name: "RSVP", href: "/rsvp", current: false },
@@ -38,32 +32,36 @@ export const Navbar = ({
 }) => {
   const path = usePathname();
   return (
-    <div className="bg-blue-950/50 w-full top-0 z-50">
+    <div className="bg-deep-cove-200 dark:bg-deep-cove-950 fixed w-full top-0 z-50">
       <Disclosure as="nav" className="h-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-24 items-center justify-between">
             <div className="flex items-center">
               <div className="flex-shrink-0 h-24 w-24">
-                <Link href="/">
-                  <Image src={Logo} alt="Logo" />{" "}
-                </Link>
+                <NavLinks href="/">
+                  <NavbarLogo
+                    srcLight={LightLogo}
+                    srcDark={DarkLogo}
+                    alt="logo"
+                  />
+                </NavLinks>
               </div>
               <div className="hidden md:block">
-                <div className="ml-10 flex items-baseline space-x-4 bg-blue-950 z-20">
+                <div className="ml-10 flex items-baseline space-x-4 z-20">
                   {navigation.map((item) => (
-                    <Link
+                    <NavLinks
                       key={item.name}
                       href={item.href}
                       aria-current={item.href === path}
                       className={classNames(
                         item.href === path
-                          ? "bg-blue-850 text-white"
-                          : "text-fuscia-100 hover:bg-blue-750 hover:text-white",
+                          ? "bg-deep-cove-300 dark:bg-deep-cove-800 "
+                          : "text-fuscia-100 hover:bg-deep-cove-300 dark:hover:bg-deep-cove-900",
                         "rounded-md px-3 py-2 text-sm font-medium"
                       )}
                     >
                       {item.name}
-                    </Link>
+                    </NavLinks>
                   ))}
                 </div>
               </div>
@@ -75,9 +73,9 @@ export const Navbar = ({
                 <PopoverButton>Menu</PopoverButton>
                 <PopoverPanel anchor="bottom" className="flex flex-col">
                   {navigation.map((ele) => (
-                    <Link key={ele.href} href={ele.href}>
+                    <NavLinks key={ele.href} href={ele.href}>
                       {ele.name}
-                    </Link>
+                    </NavLinks>
                   ))}
                 </PopoverPanel>
               </Popover>

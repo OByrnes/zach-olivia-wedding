@@ -5,6 +5,7 @@ import StepTwo from "./StepTwo";
 import StepThree from "./StepThree";
 import { GuestData, RSVPGroup } from "../types";
 import { validateRSVPGroup } from "../utils";
+import { NavLinks } from "./NavLinks";
 function validateEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -51,6 +52,8 @@ function makeErrors(
 const MultiStepForm: React.FC<{
   submitForm: (data: RSVPGroup) => Promise<void | undefined>;
 }> = ({ submitForm }) => {
+  const [alertOpen, setAlertOpen] = useState(false);
+
   const [step, setStep] = useState<number>(1);
   const [formData, setFormData] = useState<Partial<RSVPGroup>>({});
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -74,6 +77,7 @@ const MultiStepForm: React.FC<{
       return true;
     }
   }, [formData, step]);
+
   const verifySubmit = useMemo(() => validateRSVPGroup(formData), [formData]);
   const handleNext = () => setStep((prev) => Math.min(prev + 1, 3));
   const handleBack = () => setStep((prev) => Math.max(prev - 1, 1));
@@ -82,6 +86,7 @@ const MultiStepForm: React.FC<{
     // Add submission logic here
     if (validateRSVPGroup(formData)) {
       submitForm(formData);
+      setAlertOpen(true);
     } else {
       setErrors;
     }
@@ -119,7 +124,17 @@ const MultiStepForm: React.FC<{
   };
 
   return (
-    <div className="size-6/12 mx-auto p-6 relative">
+    <div className="size-4/5 mx-auto p-6 relative">
+      {alertOpen ? (
+        <div
+          className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4"
+          role="alert"
+        >
+          <p className="font-bold">Success!</p>
+          <p>We will see you there!</p>
+          <NavLinks href="/">Go Back Home screen</NavLinks>
+        </div>
+      ) : null}
       {/* Render the current step */}
       <div className="transition duration-300 ease-in-out transform">
         {renderStep()}
@@ -129,7 +144,7 @@ const MultiStepForm: React.FC<{
       {step > 1 && (
         <button
           onClick={handleBack}
-          className="absolute -left-4 top-1/2 transform -translate-y-1/2 p-4 hover:bg-purple-100/50 text-blue-950 rounded-full hover:shadow-lg bg-transparent focus:outline-none"
+          className="absolute -left-4 top-1/2 transform -translate-y-1/2 p-4 hover:bg-deep-cove-600 rounded-full hover:shadow-lg bg-transparent focus:outline-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -154,13 +169,13 @@ const MultiStepForm: React.FC<{
         <button
           onClick={handleNext}
           disabled={!verifyNext}
-          className="absolute disabled:text-slate-500 top-1/2 -right-4 transform -translate-y-1/2 p-4 hover:bg-blue-950 text-blue-950 hover:text-purple-100 rounded-full hover:shadow-lg bg-transparent focus:outline-none"
+          className="absolute disabled:text-slate-500 top-1/2 -right-4 transform -translate-y-1/2 p-4 dark:hover:bg-deep-cove-950 hover:bg-deep-cove-600 text-deep-cove-950 hover:text-deep-cove-100 rounded-full hover:shadow-lg bg-transparent focus:outline-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             fill="currentColor"
-            className="size-6 size-6 box-shadow-lg hover:shadow-0"
+            className="size-6 box-shadow-lg hover:shadow-0"
           >
             <path
               fillRule="evenodd"
@@ -178,7 +193,7 @@ const MultiStepForm: React.FC<{
         <button
           disabled={!verifySubmit}
           onClick={handleSubmit}
-          className="absolute top-1/2 disabled:text-slate-500 -right-5 transform -translate-y-1/2 p-4 hover:bg-blue-950 text-blue-950 hover:text-purple-100 rounded-full hover:shadow-lg focus:outline-none"
+          className="absolute top-1/2 disabled:text-slate-500 -right-5 transform -translate-y-1/2 p-4 hover:bg-deep-cove-600 dark:hover:bg-deep-cove-950 text-deep-cove-950 dark:text-deep-cove-50 hover:dark:text-purple-100 rounded-full hover:shadow-lg focus:outline-none"
         >
           Submit
         </button>

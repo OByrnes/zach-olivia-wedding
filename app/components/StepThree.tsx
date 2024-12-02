@@ -60,8 +60,8 @@ const StepThree: React.FC<StepThreeProps> = ({ formData, setFormData }) => {
     return formData;
   };
   return (
-    <div className="drop-shadow-md size-full border-blue-950/90 grid gap-4 grid-cols-1 gap-3 p-6 shadow-md backdrop-grayscale-50 bg-blue-100/60">
-      <h6 className="text-xl mb-4 text-blue-950">
+    <div className="drop-shadow-md size-full border-deep-cove-950/90 grid gap-4 grid-cols-1 gap-3 p-6 shadow-md backdrop-grayscale-50 bg-deep-cove-100/60 dark:hover:bg-deep-cove-100/60">
+      <h6 className="text-xl mb-4 text-deep-cove-950">
         Anything we should know about you?
       </h6>
       <div>
@@ -69,7 +69,7 @@ const StepThree: React.FC<StepThreeProps> = ({ formData, setFormData }) => {
           <div key={ele.name}>
             <label
               htmlFor="name"
-              className="block text-sm font-medium leading-6 text-blue-950"
+              className="block text-sm font-medium leading-6 text-deep-cove-950"
             >
               <input
                 type="text"
@@ -80,14 +80,14 @@ const StepThree: React.FC<StepThreeProps> = ({ formData, setFormData }) => {
                     editGuestName(prev, i, e.target.value || "")
                   )
                 }
-                className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-950"
+                className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-deep-cove-950"
               />
             </label>
             <label
               htmlFor="comments"
-              className="block text-sm font-medium leading-6 text-blue-950"
+              className="block text-sm font-medium leading-6 text-deep-cove-950"
             >
-              <span className="text-blue-950">First and Last Name</span>
+              <span className="text-deep-cove-950">First and Last Name</span>
               <input
                 type="text"
                 placeholder="Comments"
@@ -97,18 +97,18 @@ const StepThree: React.FC<StepThreeProps> = ({ formData, setFormData }) => {
                     editGuestComments(prev, i, e.target.value || "")
                   )
                 }
-                className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-950"
+                className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-deep-cove-950"
               />
             </label>
-            <div className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-950">
-              <label className="text-blue-950 block w-full">
+            <div className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-deep-cove-950">
+              <label className="text-deep-cove-950 block w-full">
                 Dietary Restrictions:
               </label>
               {dietaryOptions.map((option) => (
-                <label className="text-blue-950  mr-1" key={option}>
+                <label className="text-deep-cove-950  mr-1" key={option}>
                   <input
                     type="checkbox"
-                    className="mt-0 px-1 mr-1 border-1 border-gray-200 focus:ring-0 focus:border-blue-950"
+                    className="mt-0 px-1 mr-1 border-1 border-gray-200 focus:ring-0 focus:border-deep-cove-950"
                     checked={ele.diet?.includes(option) || false}
                     onChange={(e) => {
                       const newDiet = e.target.checked

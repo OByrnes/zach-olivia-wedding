@@ -1,11 +1,16 @@
-import { Italiana, Open_Sans, Poppins } from "next/font/google";
+import { Italiana, Poppins } from "next/font/google";
 import "./globals.css";
-import SectionContainer from "@/app/components/SectionContainer";
 import { Metadata } from "next";
-import Image from "next/image";
 import { Navbar } from "./components/Navbar";
-import flower_design from "../public/flower_design.png";
 import Footer from "./components/Footer";
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 export const metadata: Metadata = {
   // metadataBase: new URL(siteMetadata.siteUrl),
   title: "Z & O",
@@ -32,11 +37,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.variable} ${headingFont.variable}`}>
-      <body className={`size-full relative`}>
+      <body className={`relative`}>
         <main className={`size-full relative`}>
           <Navbar />
 
-          <div className="md:min-h-screen">{children}</div>
+          <div className="min-h-screen mt-28">{children}</div>
           <Footer />
         </main>
       </body>

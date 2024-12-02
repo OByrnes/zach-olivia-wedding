@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { NavLinks } from "./NavLinks";
 type CardType = {
   title: string;
   description: string;
@@ -16,7 +17,7 @@ const Card = ({ title, description, imgSrc, href }: CardType) => (
       <div className="bgWrap">
         {imgSrc &&
           (href ? (
-            <Link href={href} aria-label={`Link to ${title}`}>
+            <NavLinks href={href} aria-label={`Link to ${title}`}>
               <Image
                 alt={title}
                 src={imgSrc}
@@ -24,7 +25,7 @@ const Card = ({ title, description, imgSrc, href }: CardType) => (
                 width={544}
                 height={306}
               />
-            </Link>
+            </NavLinks>
           ) : (
             <Image
               alt={title}
@@ -38,24 +39,22 @@ const Card = ({ title, description, imgSrc, href }: CardType) => (
       <div className="p-6">
         <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
           {href ? (
-            <Link href={href} aria-label={`Link to ${title}`}>
+            <NavLinks href={href} aria-label={`Link to ${title}`}>
               {title}
-            </Link>
+            </NavLinks>
           ) : (
             title
           )}
         </h2>
-        <p className="prose mb-3 max-w-none text-fuscia-100-500 dark:text-fuscia-100-400">
-          {description}
-        </p>
+        <p className="prose mb-3 max-w-none">{description}</p>
         {href && (
-          <Link
+          <NavLinks
             href={href}
             className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
             aria-label={`Link to ${title}`}
           >
             Learn more &rarr;
-          </Link>
+          </NavLinks>
         )}
       </div>
     </div>

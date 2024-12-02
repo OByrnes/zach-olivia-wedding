@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 
 import Image from "next/image";
-import Link from "next/link";
+import { NavLinks } from "../components/NavLinks";
 import Background from "@/public/flower_design.png";
 
 const Details: NextPage = () => {
@@ -26,13 +26,12 @@ const Details: NextPage = () => {
         <p className="text-center ">
           We would be honored to have you with us as we exchange our vows
           surrounded by the natural beauty of
-          <Link
+          <NavLinks
             href="https://g.co/kgs/t2168iR"
             className="hover:underline font-extrabold"
           >
-            {" "}
-            The Cox Arboretum{" "}
-          </Link>
+            The Cox Arboretum
+          </NavLinks>
           , in Dayton, Ohio. The ceremony will begin at{" "}
           <span className="font-extrabold">
             4:30 PM on Saturday, May 3rd, 2024
@@ -56,13 +55,12 @@ const Details: NextPage = () => {
         <p className="text-center ">
           After the ceremony, we warmly invite you to join us for dinner and a
           joyful celebration at
-          <Link
+          <NavLinks
             href="https://g.co/kgs/CpXqr6G"
             className="hover:underline font-extrabold"
           >
-            {" "}
-            Century Bar Upstairs{" "}
-          </Link>
+            Century Bar Upstairs
+          </NavLinks>
           .
         </p>
         <p>

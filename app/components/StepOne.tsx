@@ -9,12 +9,12 @@ interface StepOneProps {
 
 const StepOne: React.FC<StepOneProps> = ({ formData, setFormData }) => {
   return (
-    <div className="drop-shadow-md size-full border-blue-950/90 grid gap-4 grid-cols-1 gap-3 p-6 shadow-md backdrop-grayscale-50 bg-blue-100/60">
+    <div className="drop-shadow-md size-full border-deep-cove-950/90 grid grid-cols-1 gap-3 p-6 shadow-md backdrop-grayscale-50 bg-deep-cove-100/60 dark:hover:bg-deep-cove-100/60">
       <label
         htmlFor="name"
-        className="block text-sm font-medium leading-6 text-blue-950"
+        className="block text-sm font-medium leading-6 text-deep-cove-950"
       >
-        <span className="text-blue-950">First and Last Name</span>
+        <span>First and Last Name</span>
 
         <input
           id="name"
@@ -25,7 +25,7 @@ const StepOne: React.FC<StepOneProps> = ({ formData, setFormData }) => {
           value={formData.name || ""}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           required
-          className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-950"
+          className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-deep-cove-950"
         />
       </label>
       {/* <input
@@ -35,13 +35,13 @@ const StepOne: React.FC<StepOneProps> = ({ formData, setFormData }) => {
         required
         value={formData.name || ""}
         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-        className="w-full p-2 border text-blue-950 border-blue-950 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-950"
+        className="w-full p-2 border text-deep-cove-950 border-deep-cove-950 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-deep-cove-950"
       /> */}
       <label
         htmlFor="email"
-        className="block text-sm font-medium leading-6 text-blue-950"
+        className="block text-sm font-medium leading-6 text-deep-cove-950"
       >
-        <span className="text-blue-950">Enter your email</span>
+        <span className="text-deep-cove-950">Enter your email</span>
 
         <input
           id="email"
@@ -50,7 +50,7 @@ const StepOne: React.FC<StepOneProps> = ({ formData, setFormData }) => {
           placeholder="E-Mail"
           value={formData.email || ""}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-950"
+          className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-deep-cove-950"
         />
       </label>
     </div>

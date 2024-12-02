@@ -26,12 +26,12 @@ const StepTwo: React.FC<StepTwoProps> = ({ formData, setFormData, errors }) => {
     }
   };
   return (
-    <div className="drop-shadow-md size-full border-blue-950/90 grid gap-4 grid-cols-1 gap-3 p-6 shadow-md backdrop-grayscale-50 bg-blue-100/60">
+    <div className="drop-shadow-md size-full border-deep-cove-950/90 grid gap-4 grid-cols-1 gap-3 p-6 shadow-md backdrop-grayscale-50 bg-deep-cove-100/60 dark:hover:bg-deep-cove-100/60">
       <label
         htmlFor="number"
-        className="block text-sm font-medium leading-6 text-blue-950"
+        className="block text-sm font-medium leading-6 text-deep-cove-950"
       >
-        <span className="text-blue-950">
+        <span className="text-deep-cove-950">
           How many people are in your party?{" "}
         </span>
         <input
@@ -41,7 +41,7 @@ const StepTwo: React.FC<StepTwoProps> = ({ formData, setFormData, errors }) => {
           onChange={(e) =>
             setFormData({ ...formData, number: Number(e.target.value) })
           }
-          className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-950"
+          className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-deep-cove-950"
         />
       </label>
       {errors.number ? (
@@ -51,9 +51,9 @@ const StepTwo: React.FC<StepTwoProps> = ({ formData, setFormData, errors }) => {
         <>
           <label
             htmlFor="names"
-            className="block text-sm font-medium leading-6 text-blue-950"
+            className="block text-sm font-medium leading-6 text-deep-cove-950"
           >
-            <span className="text-blue-950">
+            <span className="text-deep-cove-950">
               {formData.number && formData.number > 2
                 ? "What are their names?"
                 : "What is their name?"}
@@ -70,11 +70,11 @@ const StepTwo: React.FC<StepTwoProps> = ({ formData, setFormData, errors }) => {
                 });
                 setNames(e.target.value || "");
               }}
-              className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-950"
+              className="mt-0 block w-full px-0.5 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-deep-cove-950"
             />
           </label>
 
-          <label className="text-blue-950">
+          <label className="text-deep-cove-950">
             Please separate names with a comma.
           </label>
         </>

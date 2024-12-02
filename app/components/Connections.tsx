@@ -10,6 +10,7 @@ import React, { FC, useCallback, useEffect, useState } from "react";
 import hintBelgium from "@/public/hintbelgium.jpg";
 import hintKalia from "@/public/hintKalia.jpg";
 import hintHobbie from "@/public/hintHobbie.jpg";
+import hintFinal from "@/public/gal17.jpg";
 import Image from "next/image";
 
 const yellow_words = ["Values", "Humor", "Love", "Life"];
@@ -140,19 +141,20 @@ export const Connections = () => {
   ]);
   let [isOpen, setIsOpen] = useState(false);
 
-  const triggerJiggle = () => {
-    setJiggle(true);
-    setTimeout(() => {
-      setJiggle(false);
-    }, 500); // 0.5 seconds
-  };
   const triggerAlert = () => {
     setAlertOpen(true);
     setTimeout(() => {
       setAlertOpen(false);
-    }, 1000); // 0.5 seconds
+    }, 2000); // 0.5 seconds
   };
 
+  const triggerJiggle = () => {
+    setJiggle(true);
+    triggerAlert();
+    setTimeout(() => {
+      setJiggle(false);
+    }, 500); // 0.5 seconds
+  };
   const isCorrect = (words: string[]) => {
     if (
       yellow_words.every((ele) => words.includes(ele)) &&
@@ -203,26 +205,29 @@ export const Connections = () => {
   };
   const [hint, setHint] = useState({
     img: hintBelgium,
-    txt: "Olivia at Carnivaal in Belgium, Zach went to Fas Nacht in Switzerland",
+    txt: "Olivia at Carnival in Belgium, Zach went to Fas Nacht in Switzerland",
   });
   const getHint = (correctlyGuessed: string[]) => {
     let hintImage = hintKalia;
     let hintText =
-      "Olivia at Carnivaal in Belgium, Zach went to Fas Nacht in Switzerland";
+      "Olivia at a Carnival parade. Maybe Zach went to a Fas Nacht festival";
     if (!correctlyGuessed.includes("green")) {
       return { img: hintBelgium, txt: hintText };
     } else if (!correctlyGuessed.includes("blue")) {
       return {
         img: hintHobbie,
-        txt: "Zach goes to jiu jitsu classes in his spare time. Olivia likes to bake",
+        txt: "Zach goes to jiu jitsu classes in his spare time. Olivia has less painful passtimes",
       };
     } else if (!correctlyGuessed.includes("purple")) {
       return {
         img: hintKalia,
-        txt: "Kalia is always on alert for Squirrels or dropped food especially chicken",
+        txt: "Kalia is always on alert for squirrels or dropped food",
       };
     } else {
-      return { img: hintImage, txt: "Zach and Olivia are getting married." };
+      return {
+        img: hintFinal,
+        txt: "Zach and Olivia are getting married!!!!!",
+      };
     }
   };
   const openHint = () => {
@@ -231,7 +236,7 @@ export const Connections = () => {
   };
   return (
     <div className="h-full flex flex-col justify-center items-center">
-      {jiggle ? (
+      {alertOpen ? (
         <div
           className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4"
           role="alert"
@@ -240,15 +245,16 @@ export const Connections = () => {
           <p>All of these categories are related to Zach and Olivia</p>
         </div>
       ) : null}
-      <h3 className="title">Z + O Connections</h3>
+      <h3 className="title">Love Connections</h3>
+      <h2>Group words that share a common thread </h2>
       <button onClick={() => openHint()}>Get a hint</button>
       <Dialog
         open={isOpen}
         onClose={() => setIsOpen(false)}
         className="relative z-50"
       >
-        <div className="fixed inset-0 flex w-3/4 h-3/4 items-center justify-center p-4">
-          <DialogPanel className="max-w-lg space-y-4 border p-12 bg-blue-950">
+        <div className="fixed inset-0 flex w-full h-full items-center content-center justify-center p-4">
+          <DialogPanel className="max-w-lg space-y-4 border p-12 bg-deep-cove-100 dark:bg-deep-cove-950  dark:text-deep-cove-100 text-deep-cove-950">
             <DialogTitle className="font-bold">Hint</DialogTitle>
             <Description>{hint.txt}</Description>
             <div className="w-full h-64 relative">
@@ -259,7 +265,7 @@ export const Connections = () => {
                 fill
                 sizes="(min-width: 608px) 50vw, 100vw"
                 style={{
-                  objectFit: "cover", // cover, contain, none
+                  objectFit: "contain", // cover, contain, none
                 }}
               />
             </div>

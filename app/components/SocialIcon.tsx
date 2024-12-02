@@ -23,7 +23,7 @@ const SocialIcon = ({ href, size = 1 }: { href: string; size: number }) => {
 
   return (
     <a
-      className="text-sm text-fuscia-100-500 transition hover:text-fuscia-100-600 flex"
+      className="text-sm transition flex"
       target="_blank"
       style={{ maxHeight: "30px" }}
       rel="noopener noreferrer"
@@ -31,7 +31,7 @@ const SocialIcon = ({ href, size = 1 }: { href: string; size: number }) => {
     >
       <span>Mail</span>
       <SocialSvg
-        className={`fill-current text-fuscia-100-700 hover:text-primary-500 dark:text-fuscia-100-200 dark:hover:text-primary-400 h-${size} w-${size}`}
+        className={`fill-current hover:text-primary-500 dark:hover:text-primary-400 h-${size} w-${size}`}
       />
     </a>
   );

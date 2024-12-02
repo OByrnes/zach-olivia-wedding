@@ -12,50 +12,101 @@
   
   .keyboardContainer {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    width: 570px;
+
+    width: 65%;
+    aspect-ratio: 57 / 22;
     margin: 0 auto;
+    gap: 5px;
+  }
+  .keyboardRow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+   height:30%;
+   justify-content: center;
     gap: 5px;
   }
   .key {
     @include keybase;
-    width: 50px;
-    height: 70px;
+    width: calc(100% * (50 / 570));
+   height:100%;
   }
   .emptyKey {
-    width: 25px;
-    height: 70px;
+    width: calc(100%* (25 / 570));
+   height:100%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   
+  
   .enterKey {
     @include keybase;
-    width: 80px;
-    height: 70px;
+    width: calc(100%* (80 / 570));
+   height:100%;
   }
   
   .deleteKey {
     @include keybase;
-    width: 80px;
-    height: 70px;
+    width: calc(100%* (80 / 570));
+   height:100%;
   }
   
   .correct {
-    background-color: #4caf50;
-    border: #4caf50 solid 2px;
+    @include keybase;
+    width: calc(100%* (50 / 570));
+   height:100%;
+    background-color: #91bb88;
+    border: #91bb88 solid 2px;
     color: black;
   }
   
   .present {
-    background-color: #e5f321;
-    border: #e5f321 solid 2px;
+    @include keybase;
+    width: calc(100%* (50 / 570));
+    height: calc(100% * (70 / 220));
+    background-color: #e7a83b;
+  border: #e7a83b solid 2px;
     color: black;
   }
   
   .absent {
+    @include keybase;
+    width: calc(100%* (50 / 570));
+   height:100%;
     background-color: #aaa;
-    border: #aaa solid 2px;
+  border: #aaa solid 2px;
     color: black;
+  }
+
+  @media (max-width: 440px) {
+    .keyboardContainer {
+      width: 100%;
+    }
+    .absent{
+      width: calc(100% * (50 / 570));
+    }
+    .present{
+      width: calc(100% * (50 / 570));
+    }
+    .correct{
+     width: calc(100% * (50 / 570));;
+    }
+    .deleteKey{
+      width: calc(100% * (50 / 570));
+    }
+    .enterKey{
+      width: calc(100% * (50 / 570));
+    }
+    .emptyKey{
+      width: calc(100% * (50 / 570));
+    }
+  }
+
+  @media (max-width: 600px) {
+    .keyboardContainer {
+      width: 75%;
+    }
   }
