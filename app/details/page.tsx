@@ -24,8 +24,9 @@ const Details: NextPage = () => {
       <div className="flex flex-col flex-wrap items-center justify-center flex-1 py-5 space-y-6 z-10 p-8">
         <h2 className="text-3xl text-center font-semibold mb-4">Ceremony</h2>
         <p className="text-center ">
-          We would be honored to have you with us as we exchange our vows
-          surrounded by the natural beauty of
+          {
+            "We would be honored to have you with us as we exchange our vows surrounded by the natural beauty of "
+          }
           <NavLinks
             href="https://g.co/kgs/t2168iR"
             className="hover:underline font-extrabold"
@@ -40,9 +41,9 @@ const Details: NextPage = () => {
           gardens and vibrant native plantings.
         </p>
         <p>
-          Please dress for the weather. The reception is planned to be held
-          outdoors, weather permitting. The dress code for the evening is
-          cocktail attire.
+          The dress code for the evening is cocktail attire. Please dress for
+          the weather. The reception is planned to be held outdoors, weather
+          permitting.
         </p>
         <p>
           Should the weather not cooperate, our celebration will gracefully move
@@ -53,8 +54,9 @@ const Details: NextPage = () => {
 
         <h2 className="text-3xl text-center font-semibold mb-4">Reception</h2>
         <p className="text-center ">
-          After the ceremony, we warmly invite you to join us for dinner and a
-          joyful celebration at
+          {
+            "After the ceremony, we warmly invite you to join us for dinner and a joyful celebration at "
+          }
           <NavLinks
             href="https://g.co/kgs/CpXqr6G"
             className="hover:underline font-extrabold"
@@ -83,7 +85,8 @@ const Details: NextPage = () => {
         <h2 className="text-3xl text-center font-semibold mb-4">Gifts</h2>
         <p className="text-center ">
           Your presence at our wedding is the greatest gift. We’re grateful to
-          share this day with you. Thank you!
+          share this day with you. Thank you! If you would like to contribute to
+          our honeymoon fund you may do so via Venmo @liviabyrnes
         </p>
       </div>
     </div>
