@@ -1,5 +1,5 @@
-import { NavLinks } from "../components/NavLinks";
-import { Connections } from "../components/Connections";
+import { NavLinks } from "@/app/components/NavLinks";
+import { Connections } from "@/app/components/Connections";
 
 export default function GamesPage() {
   return (
