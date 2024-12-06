@@ -61,6 +61,18 @@ export default function Footer() {
           <span>Get in touch</span>
         </span>
       </NavLinks>
+      <div>
+        Olivia&apos;s number:
+        <span>
+          <a href="tel:937-831-2378">937-831-2378</a>
+        </span>
+      </div>
+      <div>
+        Zach&apos;s number:
+        <span>
+          <a href="tel:203-455-4869">203-455-4869</a>
+        </span>
+      </div>
     </footer>
   );
 }
