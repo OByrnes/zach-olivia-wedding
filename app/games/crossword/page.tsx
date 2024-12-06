@@ -2,10 +2,13 @@
 import React, { useState } from "react";
 import Crossword from "@jaredreisinger/react-crossword";
 import styles from "./crossword.module.scss";
+import gif from "@/public/crossword.gif";
+import backup from "@/public/crossword.jpg";
 import {
   CluesInputOriginal,
   Direction,
 } from "@jaredreisinger/react-crossword/dist/types";
+import Image from "next/image";
 const grid: CluesInputOriginal = {
   across: {
     "1": {
@@ -276,13 +279,13 @@ const grid: CluesInputOriginal = {
   },
 };
 const theme = {
-  columnBreakpoint: "400px",
+  columnBreakpoint: "768px",
   gridBackground: "#001247",
   cellBackground: "#f4ecf9",
   cellBorder: "#001247",
   textColor: "#001247",
   numberColor: "#001247",
-  focusBackground: "#493ec1",
+  focusBackground: "#d4beea",
   highlightBackground: "#383ead",
 };
 const Home: React.FC = () => {
@@ -295,7 +298,7 @@ const Home: React.FC = () => {
     }
   };
   return (
-    <div className="w-full">
+    <div className="w-full mt-32">
       {correctAlert ? (
         <div
           className=" border-l-4 border-deep-cove-500 text--deep-cove-700 p-4"
@@ -307,24 +310,28 @@ const Home: React.FC = () => {
       ) : null}
       {clueSelected ? (
         <div
-          className=" border-l-4 border-deep-cove-500 text--deep-cove-700 p-4"
+          className=" border-l-4  border-deep-cove-500 text-deep-cove-700 p-4"
           role="alert"
         >
           <p className="font-bold">Current Clue</p>
           <p>{clueSelected}</p>
         </div>
       ) : null}
-      <div className={`${styles.crossword} md:columns-2`}>
-        <Crossword
-          useStorage={true}
-          theme={theme}
-          downLabel={"Down"}
-          acrossLabel={"Across"}
-          data={grid}
-          storageKey={"crossword"}
-          onCrosswordCorrect={(isCorrect) => setCorrectAlert(isCorrect)}
-          onClueSelected={onClueSelected}
-        />
+      <div className={`${styles.crossword} grid grid-cols-1 md:grid-cols-2`}>
+        {correctAlert ? (
+          <Image alt="crossword" unoptimized src={gif} />
+        ) : (
+          <Crossword
+            useStorage={true}
+            theme={theme}
+            downLabel={"Down"}
+            acrossLabel={"Across"}
+            data={grid}
+            storageKey={"crossword"}
+            onCrosswordCorrect={(isCorrect) => setCorrectAlert(isCorrect)}
+            onClueSelected={onClueSelected}
+          />
+        )}
       </div>
     </div>
   );

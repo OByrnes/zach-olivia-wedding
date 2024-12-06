@@ -25,7 +25,6 @@ import gal24 from "@/public/gal24.jpg";
 import gal25 from "@/public/gal25.jpg";
 import galspoon from "@/public/galspoon.jpg";
 import gal21 from "@/public/gal21.jpg";
-import galkalia from "@/public/galkalia.jpg";
 import galkid from "@/public/galkid.jpg";
 import galkid1 from "@/public/galkid2.jpg";
 import galkid2 from "@/public/galkid3.jpg";
@@ -152,6 +151,10 @@ const Gallery: NextPage = () => {
     // row
     {
       classNames: "min-h-136 h-136 md:min-h-136 md:h-136 sm:col-span-2",
+      src: gal23,
+    },
+    {
+      classNames: "min-h-136 h-136 md:min-h-136 md:h-136 sm:col-span-2",
       src: gal25,
     },
 
@@ -188,10 +191,10 @@ const Gallery: NextPage = () => {
       src: galkid2,
     },
     // Row kid 3
-    {
-      classNames: "min-h-136 h-136 md:min-h-136 md:h-136 sm:col-span-2",
-      src: galkalia,
-    },
+    // {
+    //   classNames: "min-h-136 h-136 md:min-h-136 md:h-136 sm:col-span-2",
+    //   src: galkalia,
+    // },
     {
       classNames: "min-h-136 h-136 md:min-h-136 md:h-136",
       src: galspoon,

@@ -376,7 +376,27 @@ h3.title {
 .jiggle {
   animation: jiggle 0.5s ease-in-out;
 }
-
+.clues{
+  
+  height: 100vh;
+  overflow: scroll;
+}
+.crossword .grid{
+  height: 100vh;
+  overflow: scroll;
+}
+@media (max-width: 768px) {
+  .clues{
+    
+    height: 50vh;
+    overflow: scroll;
+  }
+  .crossword .grid{
+  
+    height: 50vh;
+    overflow: scroll;
+  }
+}
 @media (min-width: 576px) {
   .card-grid {
     width: 100%;

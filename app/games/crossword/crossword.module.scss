@@ -1,4 +1,4 @@
-.crossword input {
+.crossword input:focus {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -13,5 +13,7 @@
     font-size: unset;
     line-height: 1.5rem;
     --tw-shadow: 0 0 #0000;
-    outline: none;
+    outline: unset;
+ 
+    outline-offset: unset;
 }
