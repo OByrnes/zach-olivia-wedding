@@ -68,7 +68,7 @@ const StepOne: React.FC<StepOneProps> = ({
       <button
         onClick={handleNext}
         disabled={!verifyNext}
-        className="size-8 flex content-center enabled:text-deep-cove-950 items-center enabled:bg-deep-cove-400 disabled:text-slate-500 disabled:bg-text-slate-100 top-1/2 -right-4 transform -translate-y-1/2 p-4 dark:hover:bg-deep-cove-950 hover:enabled:bg-deep-cove-600 text-deep-cove-950 hover:text-deep-cove-100 rounded-full hover:shadow-lg focus:outline-none"
+        className="size-8 p-1 flex content-center enabled:text-deep-cove-950 items-center enabled:bg-deep-cove-400 disabled:text-slate-500 disabled:bg-text-slate-100 top-1/2 -right-4 transform -translate-y-1/2  dark:hover:bg-deep-cove-950 hover:enabled:bg-deep-cove-600 text-deep-cove-950 hover:text-deep-cove-100 rounded-full hover:shadow-lg focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -282,9 +282,9 @@ body {
 .word-box:hover {
   filter: brightness(85%);
   color: rgb(
-    calc(var(--primary-background-r) + var(--hover-delta)),
-    calc(var(--primary-background-g) + var(--hover-delta)),
-    calc(var(--primary-background-b) + var(--hover-delta))
+    calc(var(--primary-color-b) + var(--hover-delta)),
+    calc(var(--primary-color-g) + var(--hover-delta)),
+    calc(var(--primary-color-b) + var(--hover-delta))
   );
 }
 .word-box-selected {

@@ -72,7 +72,7 @@ const StepThree: React.FC<StepThreeProps> = ({
     <div className="w-full enabled:text-deep-cove-950 relative flex content-center items-center">
       <button
         onClick={handleBack}
-        className="size-8 flex content-center items-center enabled:bg-deep-cove-100/70 disabled:text-slate-500 disabled:bg-text-slate-100 top-1/2 -right-4 transform -translate-y-1/2 p-4 dark:hover:bg-deep-cove-950 hover:enabled:bg-deep-cove-600 text-deep-cove-950 hover:text-deep-cove-100 rounded-full hover:shadow-lg focus:outline-none"
+        className="size-8 p-1 flex content-center items-center enabled:bg-deep-cove-100/70 disabled:text-slate-500 disabled:bg-text-slate-100 top-1/2 -right-4 transform -translate-y-1/2  dark:hover:bg-deep-cove-950 hover:enabled:bg-deep-cove-600 text-deep-cove-950 hover:text-deep-cove-100 rounded-full hover:shadow-lg focus:outline-none"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +92,7 @@ const StepThree: React.FC<StepThreeProps> = ({
           />
         </svg>
       </button>
-      <div className="drop-shadow-md  scroll-m-0 snap-x snap-mandatory border-deep-cove-950/90 grid grid-cols-1 gap-3 p-4 shadow-md backdrop-grayscale-50 bg-deep-cove-100/60 dark:hover:bg-deep-cove-100/60">
+      <div className="drop-shadow-md  scroll-m-0 snap-x snap-mandatory border-deep-cove-950/90 grid grid-cols-1 gap-3  shadow-md backdrop-grayscale-50 bg-deep-cove-100/60 dark:hover:bg-deep-cove-100/60">
         <h6 className="text-xl mb-4 text-deep-cove-950">
           Anything we should know about you and your guest(s)?
         </h6>
@@ -159,7 +159,7 @@ const StepThree: React.FC<StepThreeProps> = ({
       <button
         disabled={!verifyNext}
         onClick={handleNext}
-        className="size-6 flex content-center items-center enabled:bg-deep-cove-400 disabled:text-slate-500 disabled:bg-text-slate-100 top-1/2 -right-4 transform -translate-y-1/2 p-4 dark:hover:bg-deep-cove-950 hover:enabled:bg-deep-cove-600 text-deep-cove-950 hover:text-deep-cove-100 rounded-full hover:shadow-lg focus:outline-none"
+        className="h-8 w-auto p-1 flex content-center items-center enabled:bg-deep-cove-400 disabled:text-slate-500 disabled:bg-text-slate-100 top-1/2 -right-4 transform -translate-y-1/2  dark:hover:bg-deep-cove-950 hover:enabled:bg-deep-cove-600 text-deep-cove-950 hover:text-deep-cove-100 rounded-full hover:shadow-lg focus:outline-none"
       >
         Submit
       </button>
