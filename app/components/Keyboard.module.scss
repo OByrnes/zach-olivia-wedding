@@ -44,12 +44,14 @@
   
   .enterKey {
     @include keybase;
+    font-size: smaller;
     width: calc(100%* (80 / 570));
    height:100%;
   }
   
   .deleteKey {
     @include keybase;
+    font-size: smaller;
     width: calc(100%* (80 / 570));
    height:100%;
   }
@@ -66,7 +68,7 @@
   .present {
     @include keybase;
     width: calc(100%* (50 / 570));
-    height: calc(100% * (70 / 220));
+    height: 100%;
     background-color: #e7a83b;
   border: #e7a83b solid 2px;
     color: black;
@@ -95,10 +97,10 @@
      width: calc(100% * (50 / 570));;
     }
     .deleteKey{
-      width: calc(100% * (50 / 570));
+      width: calc(100% * (80 / 570));
     }
     .enterKey{
-      width: calc(100% * (50 / 570));
+      width: calc(100% * (80 / 570));
     }
     .emptyKey{
       width: calc(100% * (50 / 570));

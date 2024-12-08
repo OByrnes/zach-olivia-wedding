@@ -11,7 +11,9 @@ const Card = ({ title, description, imgSrc, href }: CardType) => (
     <NavLinks href={href} aria-label={`Link to ${title}`}>
       <div className="w-full">
         <div className="bg-deep-cove-950/65 w-full inset-x-0 bottom-0 absolute">
-          <p className="w-full text-center">{description}</p>
+          <p className="w-full text-center text-pretty text-deep-cove-100">
+            {description}
+          </p>
         </div>
         <Image
           alt={title}

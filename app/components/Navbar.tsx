@@ -70,8 +70,13 @@ export const Navbar = ({
             <div className="md:hidden" id="mobile-menu">
               {/* Mobile menu button */}
               <Popover className="relative">
-                <PopoverButton>Menu</PopoverButton>
-                <PopoverPanel anchor="bottom" className="flex flex-col">
+                <PopoverButton className="active:bg-deep-cove-50 peer-focus:bg-deep-cove-50 dark:active:bg-deep-cove-950">
+                  Menu
+                </PopoverButton>
+                <PopoverPanel
+                  anchor="bottom"
+                  className="flex flex-col z-50 p-2 rounded shadow-md gap-2 divide-y-2 bg-deep-cove-50 dark:bg-deep-cove-950 "
+                >
                   {navigation.map((ele) => (
                     <NavLinks key={ele.href} href={ele.href}>
                       {ele.name}

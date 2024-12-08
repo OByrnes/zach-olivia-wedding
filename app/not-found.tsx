@@ -3,17 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import Lost from "../public/lost.jpg";
 import { NavLinks } from "./components/NavLinks";
+import { Fragment } from "react";
 const NotFound: NextPage = () => {
   return (
-    <div>
-      <h1 className="title mb-4 font-bold md:text-2xl">
+    <div className="flex flex-col">
+      <h1 className="title mb-4 w-full text-center font-bold md:text-2xl">
         You seem to have gotten lost
       </h1>
       <NavLinks
         href="/"
-        className="focus:shadow-outline-deep-cove inline rounded-lg border border-transparent bg-deep-cove-300 dark:bg-deep-cove px-4 py-2 text-sm font-medium leading-5  shadow transition-colors duration-150 hover:bg-deep-cove-600 dark:hover:bg-deep-cove-850 focus:outline-none dark:hover:bg-deep-cove-600 dark:hover:bg-deep-cove-850"
+        className="bg-deep-cove-950 hover:bg-deep-cove-800  text-deep-cove-100  font-bold py-4 px-8 rounded-lg text-lg shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-deep-cove-300 transition-all transform hover:scale-105 active:scale-95 animate-bounce-slow"
       >
-        <span>
+        <span className="flex justify-evenly w-full md:w-auto">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

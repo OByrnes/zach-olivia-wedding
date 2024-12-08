@@ -57,7 +57,7 @@ const MultiStepForm: React.FC<{
   const [step, setStep] = useState<number>(1);
   const [formData, setFormData] = useState<Partial<RSVPGroup>>({});
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-  const verifyNext = useMemo(() => {
+  const verifyNext: boolean = useMemo(() => {
     if (step === 1) {
       if (formData.email && formData.name) {
         if (validateEmail(formData.email)) {
@@ -76,6 +76,7 @@ const MultiStepForm: React.FC<{
       }
       return true;
     }
+    return false;
   }, [formData, step]);
 
   const verifySubmit = useMemo(() => validateRSVPGroup(formData), [formData]);
@@ -100,6 +101,8 @@ const MultiStepForm: React.FC<{
             formData={formData}
             setFormData={setFormData}
             errors={errors}
+            verifyNext={verifyNext}
+            handleNext={handleNext}
           />
         );
       case 2:
@@ -108,6 +111,9 @@ const MultiStepForm: React.FC<{
             formData={formData}
             setFormData={setFormData}
             errors={errors}
+            verifyNext={verifyNext}
+            handleNext={handleNext}
+            handleBack={handleBack}
           />
         );
       case 3:
@@ -116,6 +122,9 @@ const MultiStepForm: React.FC<{
             formData={formData}
             setFormData={setFormData}
             errors={errors}
+            verifyNext={verifySubmit}
+            handleNext={handleSubmit}
+            handleBack={handleBack}
           />
         );
       default:
@@ -124,7 +133,7 @@ const MultiStepForm: React.FC<{
   };
 
   return (
-    <div className="size-4/5 mx-auto p-6 relative">
+    <div className="w-full mx-auto relative">
       {alertOpen ? (
         <div
           className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4"
@@ -136,68 +145,9 @@ const MultiStepForm: React.FC<{
         </div>
       ) : null}
       {/* Render the current step */}
-      <div className="transition duration-300 ease-in-out transform">
+      <div className="transition duration-300 ease-in-out transform relative">
         {renderStep()}
       </div>
-
-      {/* Decorative navigation arrows */}
-      {step > 1 && (
-        <button
-          onClick={handleBack}
-          className="absolute -left-4 top-1/2 transform -translate-y-1/2 p-4 hover:bg-deep-cove-600 rounded-full hover:shadow-lg bg-transparent focus:outline-none"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="size-6 box-shadow-lg hover:box-shadow-0"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10.72 11.47a.75.75 0 0 0 0 1.06l7.5 7.5a.75.75 0 1 0 1.06-1.06L12.31 12l6.97-6.97a.75.75 0 0 0-1.06-1.06l-7.5 7.5Z"
-              clipRule="evenodd"
-            />
-            <path
-              fillRule="evenodd"
-              d="M4.72 11.47a.75.75 0 0 0 0 1.06l7.5 7.5a.75.75 0 1 0 1.06-1.06L6.31 12l6.97-6.97a.75.75 0 0 0-1.06-1.06l-7.5 7.5Z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
-      )}
-      {step < 3 ? (
-        <button
-          onClick={handleNext}
-          disabled={!verifyNext}
-          className="absolute disabled:text-slate-500 top-1/2 -right-4 transform -translate-y-1/2 p-4 dark:hover:bg-deep-cove-950 hover:bg-deep-cove-600 text-deep-cove-950 hover:text-deep-cove-100 rounded-full hover:shadow-lg bg-transparent focus:outline-none"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className="size-6 box-shadow-lg hover:shadow-0"
-          >
-            <path
-              fillRule="evenodd"
-              d="M13.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L11.69 12 4.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
-              clipRule="evenodd"
-            />
-            <path
-              fillRule="evenodd"
-              d="M19.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06L17.69 12l-6.97-6.97a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
-      ) : (
-        <button
-          disabled={!verifySubmit}
-          onClick={handleSubmit}
-          className="absolute top-1/2 disabled:text-slate-500 -right-5 transform -translate-y-1/2 p-4 hover:bg-deep-cove-600 dark:hover:bg-deep-cove-950 text-deep-cove-950 dark:text-deep-cove-50 hover:dark:text-purple-100 rounded-full hover:shadow-lg focus:outline-none"
-        >
-          Submit
-        </button>
-      )}
     </div>
   );
 };

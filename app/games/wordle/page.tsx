@@ -168,6 +168,15 @@ const Wordle: FC = () => {
           <p>Not a word in the dictionary!</p>
         </div>
       ) : null}
+      {GameStatus.Won === gameStatus ? (
+        <div
+          className="bg-deep-cove-400 border-l-4 border-deep-cove-500 text-deep-cove-700 p-4"
+          role="alert"
+        >
+          <p className="font-bold">You Won!</p>
+          <NavLinks href="/games/crossword">Try the crossword</NavLinks>
+        </div>
+      ) : null}
       <div className={styles.mainContainer}>
         {completedWords.map((word, i) => (
           <CompletedRow
@@ -186,9 +195,6 @@ const Wordle: FC = () => {
           <Row jiggle={jiggle} key={i} />
         ))}
       </div>
-      {gameStatus === GameStatus.Won ? (
-        <NavLinks href="/crossword">Try the crossword</NavLinks>
-      ) : null}
       <Keyboard
         keys={keys}
         onKeyPressed={onKeyPressed}

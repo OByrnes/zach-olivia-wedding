@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import Box from "./Box";
 import styles from "./Row.module.scss";
 import { BoxStatus } from "./types";
@@ -14,17 +15,47 @@ export const CompletedRow = ({
   animate = false,
 }: CompletedRowProps) => {
   const arr = Array.from(Array(5));
+  function getCharacterIndexMap(str: string): Map<string, number[]> {
+    const charIndexMap = new Map<string, number[]>();
 
-  function checkLetter(letter: string, pos: number): BoxStatus {
-    if (solution.includes(letter)) {
-      if (solution[pos] === letter) {
-        return "correct";
-      } else {
-        return "present";
+    for (let i = 0; i < str.length; i++) {
+      const char = str.charAt(i);
+
+      if (!charIndexMap.has(char)) {
+        charIndexMap.set(char, []);
       }
-    } else {
-      return "absent";
+
+      charIndexMap.get(char)!.push(i);
     }
+
+    return charIndexMap;
+  }
+  const indexCorrect = useMemo(() => {
+    const guessIndexMap = getCharacterIndexMap(word);
+    const correctIndexMap = getCharacterIndexMap(solution);
+    let statusMap = new Array(5).fill("absent");
+    let i = 0;
+    while (i <= 4) {
+      let guessedChar = word[i];
+      let correctChar = solution[i];
+      if (guessedChar === correctChar) {
+        statusMap[i] = "correct";
+      } else {
+        if (word.includes(correctChar)) {
+          if (word.indexOf(correctChar) !== i) {
+            statusMap[word.indexOf(correctChar)] = "present";
+          }
+        } else {
+          statusMap[i] = "absent";
+        }
+      }
+      i++;
+    }
+
+    return statusMap;
+  }, []);
+  function checkLetter(pos: number): BoxStatus {
+    return indexCorrect[pos] || "empty";
   }
 
   return (
@@ -33,7 +64,7 @@ export const CompletedRow = ({
         <Box
           key={i}
           value={word[i]}
-          status={checkLetter(word[i], i)}
+          status={checkLetter(i)}
           animate={animate}
           pos={i}
           jiggle={false}
