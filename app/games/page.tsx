@@ -9,7 +9,7 @@ const Games: FC = () => {
   return (
     <div className="container mx-auto w-full h-full  my-28">
       <h1 className="title w-full text-center text-4xl md:text-6xl tracking-tight md:tracking-widest  ">
-        Play our verions of the NYT puzzles!
+        Play our versions of the NYT puzzles!
       </h1>
       <h3 className="title w-full text-center text-lg tracking-tight md:tracking-widest ">
         All of the puzzles were designed by Olivia{" "}
