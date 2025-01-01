@@ -66,10 +66,10 @@ export default function Footer() {
             <h4 className="title">Olivia&apos;s number:</h4>
             <span>
               <NavLinks
-                href="tel:937-831-2378"
+                href="tel:937-831-2478"
                 className="hover:underline hover:text-deep-cove-500 flex space-x-4"
               >
-                937-831-2378
+                937-831-2478
               </NavLinks>
             </span>
           </div>

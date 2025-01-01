@@ -122,7 +122,7 @@ const StepThree: React.FC<StepThreeProps> = ({
                 <input
                   type="text"
                   placeholder="Comments"
-                  value={ele.comments}
+                  value={ele?.comments || ""}
                   onChange={(e) =>
                     setFormData((prev) =>
                       editGuestComments(prev, i, e.target.value || "")

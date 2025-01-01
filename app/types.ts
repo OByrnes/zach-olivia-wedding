@@ -2,7 +2,7 @@
 export interface GuestData {
   id?:  string | number;
   name: string;
-  comments?: string;
+  comments?: string | null;
   diet?: string[];
 }
 
