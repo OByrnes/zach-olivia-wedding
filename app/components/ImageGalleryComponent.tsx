@@ -67,7 +67,7 @@ export default function S3ImageGallery({
   }, [inView]);
 
   return (
-    <div className="px-11 grid grid-flow-row-dense grid-cols-1 md:grid-cols-2">
+    <div className="grid grid-flow-row-dense grid-cols-1 md:grid-cols-3">
       {images.map((img) => (
         <div
           key={img.key}
