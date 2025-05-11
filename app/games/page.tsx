@@ -2,9 +2,9 @@
 
 import { FC } from "react";
 import Card from "../components/Card";
-import wordlepic from "@/public/wordle.jpg";
-import connectionPic from "@/public/connections.jpg";
-import crosswordpic from "@/public/crossword.jpg";
+import wordlepic from "@/app/assets/images/wordle.jpg";
+import connectionPic from "@/app/assets/images/connections.jpg";
+import crosswordpic from "@/app/assets/images/crossword.jpg";
 const Games: FC = () => {
   return (
     <div className="container mx-auto w-full h-full  my-28">

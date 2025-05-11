@@ -7,10 +7,10 @@ import {
   DialogTitle,
 } from "@headlessui/react";
 import React, { FC, useCallback, useEffect, useState } from "react";
-import hintBelgium from "@/public/hintbelgium.jpg";
-import hintKalia from "@/public/hintKalia.jpg";
-import hintHobbie from "@/public/hintHobbie.jpg";
-import hintFinal from "@/public/gal17.jpg";
+import hintBelgium from "@/app/assets/images/hintbelgium.jpg";
+import hintKalia from "@/app/assets/images/hintKalia.jpg";
+import hintHobbie from "@/app/assets/images/hintHobbie.jpg";
+import hintFinal from "@/app/assets/images/gal17.jpg";
 import Image from "next/image";
 
 const yellow_words = ["Values", "Humor", "Love", "Life"];

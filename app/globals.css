@@ -60,6 +60,11 @@ h2,
 h3 {
   font-family: var(--font-space-header);
 }
+main {
+  position: relative;
+  width: 100vw;
+  height: 100vw;
+}
 body,
 p {
   font-family: var(--font-space-poppins);

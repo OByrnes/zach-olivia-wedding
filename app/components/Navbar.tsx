@@ -7,19 +7,12 @@ import {
   PopoverPanel,
 } from "@headlessui/react";
 import { usePathname } from "next/navigation";
-import DarkLogo from "@/public/1.png";
-import LightLogo from "@/public/2.png";
+import DarkLogo from "@/app/assets/images/1.png";
+import LightLogo from "@/app/assets/images/2.png";
 import { NavbarLogo } from "./NavLogo";
 const navigation = [
-  { name: "Details", href: "/details", current: true },
-  { name: "RSVP", href: "/rsvp", current: false },
   { name: "Gallery", href: "/gallery", current: false },
   { name: "Games", href: "/games", current: false },
-];
-const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "#" },
 ];
 
 function classNames(...classes: string[]) {

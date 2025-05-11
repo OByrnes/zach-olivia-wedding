@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import Crossword from "@jaredreisinger/react-crossword";
 import styles from "./crossword.module.scss";
-import gif from "@/public/crossword.gif";
-import backup from "@/public/crossword.jpg";
+import gif from "@/app/assets/images/crossword.gif";
+import backup from "@/app/assets/images/crossword.jpg";
 import {
   CluesInputOriginal,
   Direction,

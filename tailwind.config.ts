@@ -72,7 +72,7 @@ const config: Config = {
   },
   backgroundImage: {
    
-    'background-main': "url('/public/background.jpg')",
+    'background-main': "url('/app/assets/images/background.jpg')",
   },
 darkMode: ['variant', [
     '@media (prefers-color-scheme: dark) { &:not(.light *) }',

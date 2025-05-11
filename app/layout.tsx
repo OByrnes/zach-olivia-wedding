@@ -36,12 +36,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.variable} ${headingFont.variable}`}>
-      <body className={`relative`}>
-        <main className={`size-full relative`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${poppins.className} ${headingFont.className}`}
+    >
+      <body>
+        <main>
           <Navbar />
-
-          <div className="h-full mt-24">{children}</div>
+          <div className="size-full">{children}</div>
           <Footer />
         </main>
       </body>

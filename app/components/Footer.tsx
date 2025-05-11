@@ -1,49 +1,18 @@
 import { NavLinks } from "./NavLinks";
 
 export default function Footer() {
-  const welcome = [
-    [
-      "We are thrilled to celebrate this moment with you, our friends and family!",
-      "Your presence fills our hearts with joy and means so much to us.",
-    ],
-
-    [
-      "We are thankful to have all of you in the future we are building together.",
-    ],
-    [
-      "Whether you are traveling near or far away, we appreciate the time and effort you are taking to be with us on our big day.",
-    ],
-    [
-      "Please explore this website for all the details needed to make your experience easy and enjoyable. We’ve included information about the wedding and a little bit of fun.",
-    ],
-    [
-      "Thank you for being a part of our story. We can’t wait to celebrate with you!",
-    ],
-  ];
   return (
-    <footer className="absolute end-0 bottomalign-center justify-center content-center items-center w-full z-50 bg-deep-cove-100 dark:bg-deep-cove-950 flex md:flex-row flex-col md:space-x-6 shadow-lg">
-      <div className="md:mx-16 md:my-8 ring-2 ring-deep-cove-950/[.75] p-4 scroll-smooth focus:scroll-auto h-96 overscroll-contain overflow-scroll">
-        <div className="flex flex-col justify-start md:px-8">
-          <h3 className="py-2 text-lg bold font-semibold">Welcome!</h3>
+    <footer className="absoluteend-0 bottom-0 h-16 z-50 bg-deep-cove-100 dark:bg-deep-cove-950 flex md:flex-row flex-col md:space-x-6 shadow-lg">
+      <div className="ring-2 ring-deep-cove-950/[.75] scroll-smooth focus:scroll-auto overscroll-contain overflow-scroll">
+        <div className="flex flex-col justify-start">
+          <h3 className="py-2 text-lg bold font-semibold">Thank You!</h3>
         </div>
-        {welcome.map((ele) => (
-          <div
-            key={ele.join("-")}
-            className="flex flex-col justify-start md:px-8"
-          >
-            {ele.map((innerEle, i) => (
-              <p key={innerEle} className="text-base italic leading-loose">
-                {innerEle}
-              </p>
-            ))}
-          </div>
-        ))}
-        <div className="flex flex-col justify-start px-8">
+        <div className="flex flex-col justify-start">
           <h3 className="text-lg">Zach & Olivia</h3>
         </div>
       </div>
-      <h1>Get in touch</h1>
-      <div className="flex flex-row w-full flex-wrap justify-center md:flex-col md:w-60 gap-2 p-1">
+
+      <div className="flex flex-row flex-wrap justify-center md:flex-col gap-2 p-1">
         <NavLinks
           href="mailto:watsonbyrnes@gmail.com"
           className="hover:underline hover:text-deep-cove-500 flex space-x-4"

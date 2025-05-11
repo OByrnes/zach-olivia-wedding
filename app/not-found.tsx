@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import Lost from "../public/lost.jpg";
+import Lost from "@/app/assets/images/lost.jpg";
 import { NavLinks } from "./components/NavLinks";
 import { Fragment } from "react";
 const NotFound: NextPage = () => {
