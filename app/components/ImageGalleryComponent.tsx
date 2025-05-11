@@ -72,16 +72,16 @@ export default function S3ImageGallery({
         <div
           key={img.key}
           className={`${
-            img.isPortrait ? "col-span-full" : "col-span-1"
-          } relative max-h-full`}
+            img.isPortrait ? "col-span-1 row-span-2" : "col-span-1"
+          } relative max-h-full p-1`}
         >
           <Link
             key={img.key}
             href={`/gallery/${img.key}`}
-            className="after:content group relative mb-1 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
+            className="after:content group relative block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight"
           >
             <Image
-              className="transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110"
+              className="transform brightness-90 transition will-change-auto group-hover:brightness-110"
               src={img.key}
               alt={img.key}
               blurDataURL={rgbDataURL(91, 62, 193)}
