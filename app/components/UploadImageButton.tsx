@@ -49,10 +49,10 @@ export default function UploadImageForm({
   //   bg-deep-cove-200 dark:bg-deep-cove-950
 
   return (
-    <div className="p-4 flex ">
-      <div className="flex flex-col flex-wrap w-1/2">
+    <div className="p-4 flex flex-col md:flex-row">
+      <div className="flex flex-col  flex-wrap md:w-1/2 w-full">
         <h3>Do you have any photos from the wedding?</h3>
-        <h4>Please add them to the gallery</h4>
+        <h4>Please upload them!</h4>
       </div>
       <div className="flex flex-row flex-wrap align-middle">
         <input
