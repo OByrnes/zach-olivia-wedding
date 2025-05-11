@@ -2,7 +2,7 @@ import { NavLinks } from "./NavLinks";
 
 export default function Footer() {
   return (
-    <footer className="absoluteend-0 bottom-0 h-16 z-50 bg-deep-cove-100 dark:bg-deep-cove-950 flex md:flex-row flex-col md:space-x-6 shadow-lg">
+    <footer className="absolute end-0 bottom-0 h-16 z-50 bg-deep-cove-100 dark:bg-deep-cove-950 flex md:flex-row flex-col md:space-x-6 shadow-lg">
       <div className="ring-2 ring-deep-cove-950/[.75] scroll-smooth focus:scroll-auto overscroll-contain overflow-scroll">
         <div className="flex flex-col justify-start">
           <h3 className="py-2 text-lg bold font-semibold">Thank You!</h3>

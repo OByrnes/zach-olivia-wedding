@@ -45,7 +45,6 @@ export default function RootLayout({
         <main>
           <Navbar />
           <div className="size-full">{children}</div>
-          <Footer />
         </main>
       </body>
     </html>
